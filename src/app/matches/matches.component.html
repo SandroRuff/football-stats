@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="navigation">
+    <div class="tab" *ngFor="let item of tabs; let i = index" [class.-selected]="item['isSelected']" (click)="onTabsItemClick(i)">
+      <span>{{ item['name'] | titlecase }}</span></div>
+    <div class="calendar">
+      <div class="arrow-left arrow" (click)="onMoveArrowClick('left')">
+        <svg width="0.75em" height="0.75em">
+          <use xlink:href="#arrow-left"></use>
+        </svg>
+      </div>
+      <div class="calendar-date" (click)="onCalendarClick()">
+        <span>{{ dayPipe(selectedDay) }}</span>
+      </div>
+      <div class="arrow-right arrow" (click)="onMoveArrowClick('right')">
+        <svg width="0.75em" height="0.75em">
+          <use xlink:href="#arrow-right"></use>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="border"></div>
+  <ul class="days" *ngIf="isCalendarItemsVisible" (click)="onCalendarClick()">
+    <li *ngFor="let day of days; let i = index" [class.-active]="i === 7" [class.-selected]="i === currentDay" (click)="onCalendarItemClick(i)"><span>{{dayPipe(day)
+        }}</span></li>
+  </ul>
+  <app-matches-container [tabs]="tabs" [currentTab]="currentTab" [selectedDay]="selectedDay.slice(0, 10)"></app-matches-container>
+</div>

@@ -1,0 +1,72 @@
+// Imports
+@import '../../shares/stylings/variables';
+
+// Styles
+.-live {
+  grid-template: ' . start-time . current-time team-home . icon-home . score . icon-away . team-away ht-score . ' 1fr
+  / 1em 1.5fr 0.4em 1.5fr 4.5fr 0.5em 0.75fr 0.2em 1.75fr 0.2em 0.75fr 0.5em 5.5fr 2fr 1em;
+
+  .team-home,
+  .icon-home,
+  .ht-score {
+    justify-self: end;
+    text-align: end;
+  }
+  .current-time,
+  .score {
+    color: $live-color;
+  }
+
+  // State
+  .-in-play {
+    animation: blinking 1.5s linear 0.75s infinite alternate;
+  }
+
+  // Grid Areas
+  .start-time {
+    grid-area: start-time;
+  }
+  .current-time {
+    grid-area: current-time;
+  }
+  .team-home {
+    grid-area: team-home;
+  }
+  .icon-home {
+    grid-area: icon-home;
+  }
+  .score {
+    grid-area: score;
+  }
+  .icon-away {
+    grid-area: icon-away;
+  }
+  .team-away {
+    grid-area: team-away;
+  }
+  .ht-score {
+    grid-area: ht-score;
+  }
+}
+
+@media (min-width: 768px) {
+  .-live {
+    grid-template: ' . start-time current-time team-home icon-home score icon-away team-away ht-score . ' 1fr
+      / 2em 1.6fr 1fr 4.5fr 0.75fr 1.5fr 0.75fr 5.55fr 1.5fr 2em;
+  }
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

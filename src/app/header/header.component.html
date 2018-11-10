@@ -1,0 +1,28 @@
+<div class="header">
+  <div class="wrapper">
+    <div class="left">
+      <div class="logo">
+        <i>FOOTBALL<br>
+          STATS</i>
+      </div>
+      <div class="divider"></div>
+      <div class="page-title" (mouseenter)="showLeagueSet()" (mouseleave)="hideLeagueSet($event)">
+        <span>LEAGUES</span>
+        <svg class="arrow-up-solid" width="1em" height="1em" *ngIf="isLeagueSetVisible">
+          <use xlink:href="#arrow-up-solid" />
+        </svg>
+      </div>
+    </div>
+    <div class="right">
+      <span class="login">LOG IN</span>
+      <svg class="search" width="1.25em" height="1.25em">
+        <use xlink:href="#search" />
+      </svg>
+      <svg class="settings" width="1.25em" height="1.25em">
+        <use xlink:href="#settings" />
+      </svg>
+    </div>
+  </div>
+</div>
+<app-league-set [leagueSet]="leagueSet" *ngIf="isLeagueSetVisible" (mouseleave)="hideLeagueSet($event)">
+</app-league-set>

@@ -1,0 +1,22 @@
+// Import
+@import './shares/stylings/variables';
+
+// Styles
+.page-container {
+  width: 100%;
+  min-height: calc(100vh - 9.036125em);
+  background-color: $bg-color;
+}
+
+app-go-up-btn {
+  position: fixed;
+  right: 3vw;
+  bottom: 3vh;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    min-height: calc(100vh - 8.7363125em);
+  }
+}

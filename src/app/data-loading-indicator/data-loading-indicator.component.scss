@@ -1,0 +1,41 @@
+@import '../shares/stylings/variables';
+
+.wrapper {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .indicator {
+    width: 10em;
+    text-align: center;
+    overflow: hidden;
+    
+    .bar {
+      height: 0.25em;
+      display: block;
+      background-color: $main-color;
+      margin-right: auto;
+      margin-bottom: 0.5em;
+      margin-left: auto;
+      animation: move 0.5s linear infinite;
+      transform: translateX(-100%);
+    }
+    
+    span {
+      font-size: 0.95em;
+      font-weight: 600;
+      display: block;
+    }
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
