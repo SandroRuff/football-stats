@@ -1,4 +1,4 @@
-<a [ngClass]="['match', currentClass]" [routerLink]="match.id">
+<a [ngClass]="['match', currentClass]" [routerLink]="['./', match.id]">
   <!-- Start Time -->
   <span class="start-time">{{ timePipe(match['utcDate']) }}</span>
   <!-- Current Time -->
@@ -8,7 +8,7 @@
     <span *ngSwitchCase="'PAUSED'">HT</span>
   </div>
   <!-- Home Team -->
-  <a class="team-home team" [class.-winner]="isHomeWinner(match['score']['winner'])" [routerLink]="['/team/', match.homeTeam.id]">
+  <a class="team-home team" [class.-winner]="isHomeWinner(match['score']['winner'])" [routerLink]="['./team/', match.homeTeam.id]">
     {{ match['homeTeam']['name'] }}</a>
   <img class="icon-home" [attr.src]="getTeamIconPath('home')">
   <!-- Score -->
@@ -16,7 +16,7 @@
     {{ match['score']['fullTime']['homeTeam'] }} - {{ match['score']['fullTime']['awayTeam'] }}</span>
   <!-- Away Team -->
   <img class="icon-away" [attr.src]="getTeamIconPath('away')">
-  <a class="team-away team" href="" [class.-winner]="isAwayWinner(match['score']['winner'])" [routerLink]="['/team/', match.awayTeam.id]">{{
+  <a class="team-away team" href="" [class.-winner]="isAwayWinner(match['score']['winner'])" [routerLink]="['./team/', match.awayTeam.id]">{{
     match['awayTeam']['name'] }}</a>
   <!-- Half-Time Score -->
   <div class="ht-score" *ngIf="match['status']!=='SCHEDULED'">

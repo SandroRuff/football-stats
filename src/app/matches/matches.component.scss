@@ -4,7 +4,6 @@
 // Styles
 .wrapper {
   height: 100%;
-  font-family: $deco-font, sans-serif;
   position: relative;
 
   .navigation {
@@ -94,9 +93,6 @@
 
 @media (min-width: 768px) {
   .wrapper {
-    max-width: $wrapper-width;
-    margin: 0 auto;
-    padding: 1.5em 0;
     
     .navigation {
       grid-template-columns: repeat(5, 1fr) 12em;

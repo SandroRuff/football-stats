@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MatchInfoService } from './match-info.service';
 
 @Component({
   selector: 'app-match-info',
@@ -8,10 +9,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MatchInfoComponent implements OnInit {
 
-  constructor(private ar: ActivatedRoute) {
-    ar.params.subscribe(param => console.log(param));
+  id: number;
+  match: object;
+
+  constructor(private ar: ActivatedRoute,
+    private matchInfoService: MatchInfoService) {
+    ar.params.subscribe(param => this.id = param.id);
   }
+
   ngOnInit() {
+    const subscribtions = this.matchInfoService.getMatch(this.id)
+      .subscribe(res => console.log(res));
   }
 
 }
