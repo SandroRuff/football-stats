@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MatchInfoService } from './match-info.service';
+import { MatchInfoService } from './services/match-info.service';
 
 @Component({
   selector: 'app-match-info',

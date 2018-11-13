@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges } from '@angular/core';
-import { MatchesService } from '../matches.service';
+import { MatchesService } from '../../services/matches.service';
 
 @Component({
   selector: 'app-matches-container',

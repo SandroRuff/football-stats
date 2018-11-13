@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { MatchesService } from '../matches/matches.service';
+import { MatchesService } from '../../matches/services/matches.service';
 
 @Component({
   selector: 'app-header',

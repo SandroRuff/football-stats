@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MatchesComponent } from './matches/matches.component';
-import { MatchInfoComponent } from './match-info/match-info.component';
-import { TeamInfoComponent } from './team-info/team-info.component';
+import { MatchesComponent } from './modules/matches/matches.component';
+import { MatchInfoComponent } from './modules/match-info/match-info.component';
+import { TeamInfoComponent } from './modules/team-info/team-info.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'matches' },
