@@ -1,6 +1,6 @@
 <section>
   <div class="wrapper">
-    <a class="league" href="" *ngFor="let league of leagueSet">
+    <a class="league" *ngFor="let league of leagueSet" [routerLink]="['/competition/', league.id]">
       <div class="imageWrapper">
         <img src="{{ getImageUrl(league['id']) }}">
       </div>

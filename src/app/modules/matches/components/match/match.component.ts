@@ -11,7 +11,6 @@ export class MatchComponent implements OnInit {
   @Input() match: any;
 
   currentClass: string;
-  defaultTeamIconPath = '/assets/img/teams/default.png';
 
   constructor(private imageService: ImageService) { }
 
@@ -22,10 +21,7 @@ export class MatchComponent implements OnInit {
   getTeamIconPath(teamType) {
     return this.imageService.getTeamIconPath(this.match['' + teamType + 'Team']['id']);
   }
-  getImageErrorHandler(target) {
-    console.log('Image was replaced.');
-    target.src = 'http://localhost:4200' + this.defaultTeamIconPath;
-  }
+
   // Finihed
   isHomeWinner(obj) {
     return obj === 'HOME_TEAM';

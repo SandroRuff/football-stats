@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ImageService } from 'src/app/services/image/image.service';
 
 @Component({
   selector: 'app-competition-title-bar',
@@ -9,4 +10,9 @@ export class CompetitionTitleBarComponent {
 
   @Input() competition: object;
 
+  constructor(private imageService: ImageService) { }
+
+  getAreaIconPath() {
+    return this.imageService.getAreaIconPath(this.competition['area']);
+  }
 }

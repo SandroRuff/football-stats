@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { Team } from '../../interfaces/team';
+import { Areas } from '../../interfaces/areas';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +14,8 @@ export class HttpService {
   headers: HttpHeaders = new HttpHeaders().set('X-Auth-Token', '7de3a032a5d441d69ea1e4ad478b0b53');
   url = 'http://api.football-data.org';
 
-  // Areas                                               !!!NEED TO BE REPLACED
-  areas: object[] = [
+  // Areas
+  areas: Areas[] = [
     { 'id': 2000, 'name': 'World', 'rank': 1 },
     { 'id': 2001, 'name': 'Europe', 'rank': 1 },
     { 'id': 2002, 'name': 'Germany', 'rank': 1 },
@@ -109,8 +112,8 @@ export class HttpService {
   }
 
   // Team
-  getTeam(id: number): Observable<object> {
-    return this.http.get<object>(`${this.url}/v2/teams/${id}`, { headers: this.headers });
+  getTeam(id: number): Observable<Team> {
+    return this.http.get<Team>(`${this.url}/v2/teams/${id}`, { headers: this.headers });
   }
 
   // Methods
@@ -134,6 +137,8 @@ export class HttpService {
     }
     return 0;
   }
+
+  // Area
   getArea(id: number): object {
     let tempObj: object = {};
     let status = true;
@@ -144,5 +149,13 @@ export class HttpService {
       }
     });
     return tempObj;
+  }
+  isCompetitionBase(id: number): boolean {
+    for (let i = 0; i < this.areas.length; i++) {
+      if (this.areas[i].id === id && this.areas[i].rank === 1) {
+        return true;
+      }
+    }
+    return false;
   }
 }
