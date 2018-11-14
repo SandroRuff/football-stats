@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { ImageService } from 'src/app/services/image/image.service';
 
 @Component({
   selector: 'app-match',
@@ -12,12 +13,14 @@ export class MatchComponent implements OnInit {
   currentClass: string;
   defaultTeamIconPath = '/assets/img/teams/default.png';
 
+  constructor(private imageService: ImageService) { }
+
   ngOnInit() {
     this.currentClass = `-${this.match.commonStatus.toLowerCase()}`;
   }
 
   getTeamIconPath(teamType) {
-    return `./../../assets/img/teams/${this.match['' + teamType + 'Team']['id']}.png`;
+    return this.imageService.getTeamIconPath(this.match['' + teamType + 'Team']['id']);
   }
   getImageErrorHandler(target) {
     console.log('Image was replaced.');
