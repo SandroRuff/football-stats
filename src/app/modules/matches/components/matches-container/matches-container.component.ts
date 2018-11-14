@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges } from '@angular/core';
 import { MatchesService } from '../../services/matches.service';
+import { HttpService } from 'src/app/services/http/http.service';
 
 @Component({
   selector: 'app-matches-container',
@@ -18,13 +19,13 @@ export class MatchesContainerComponent implements OnChanges {
   matchesCount: object;
   isDataLoading: boolean;
 
-  constructor(private matchesService: MatchesService,
+  constructor(private httpService: HttpService,
     private cdRef: ChangeDetectorRef) { }
 
   ngOnChanges() {
     if (this.currentDay !== this.selectedDay) {
       this.isDataLoading = true;
-      const subscribtion = this.matchesService.getAllMatches(this.selectedDay).subscribe({
+      const subscribtion = this.httpService.getAllMatches(this.selectedDay).subscribe({
         next: (res) => {
           this.matches = res;
           this.getMatchesCount(res);

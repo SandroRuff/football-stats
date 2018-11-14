@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { MatchesService } from '../../matches/services/matches.service';
+import { HttpService } from 'src/app/services/http/http.service';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +11,8 @@ export class HeaderComponent {
   isLeagueSetVisible = false;
   leagueSet: object[];
 
-  constructor(private matchesService: MatchesService) {
-    this.matchesService.getCompetitions().subscribe(res => this.leagueSet = res['competitions']);
+  constructor(private httpService: HttpService) {
+    this.httpService.getAllCompetitions().subscribe(res => this.leagueSet = res['competitions']);
   }
 
   showLeagueSet() {

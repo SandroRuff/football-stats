@@ -1,5 +1,5 @@
 <div class="competition">
   <img src="../../../assets/img/area/{{ competition['area'] }}/24.png">
-  <a class="name" href="">{{ competition["area"] }}: {{ competition["name"] }}</a>
+  <a class="name" [routerLink]="['/competition/', competition.id]">{{ competition["area"] }}: {{ competition["name"] }}</a>
   <a class="table" href="">Table</a>
 </div>

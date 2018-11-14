@@ -12,6 +12,7 @@ import { LeagueSetComponent } from './modules/ui-components/league-set/league-se
 import { GoUpBtnComponent } from './modules/ui-components/go-up-btn/go-up-btn.component';
 import { MatchInfoModule } from './modules/match-info/match-info.module';
 import { TeamInfoModule } from './modules/team-info/team-info.module';
+import { CompetitionInfoModule } from './modules/competition-info/competition-info.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TeamInfoModule } from './modules/team-info/team-info.module';
     AppRoutingModule,
     MatchesModule,
     MatchInfoModule,
-    TeamInfoModule
+    TeamInfoModule,
+    CompetitionInfoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
