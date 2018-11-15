@@ -16,6 +16,7 @@ export class TeamInfoComponent implements OnInit, OnDestroy {
   team: Team;
   baseCompetition: { id: number; name: string };
   navigationSubscription: Subscription;
+  navItems: string[] = ['Overview', 'Matches', 'Squad', 'Information'];
 
   constructor(private ar: ActivatedRoute,
     private httpService: HttpService,
@@ -69,5 +70,9 @@ export class TeamInfoComponent implements OnInit, OnDestroy {
       }
     }
     return { id: null, name: null };
+  }
+
+  onNavItemClick(index) {
+    console.log(index);
   }
 }

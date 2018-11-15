@@ -1,0 +1,47 @@
+@import '../../../shares/stylings/variables';
+
+.wrapper {
+  width: 100%;
+  background-color: $light-color;
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      width: 33.33%;
+      padding: 0.5em 1em;
+      text-align: center;
+      border-bottom: 0.1em solid $match-groupe-common-color;
+    }
+    
+    li:nth-child(3) {
+      border-right: none;
+    }
+
+    .-selected {
+      border-bottom: 0.1em solid $main-color;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+  
+    ul {
+      font-size: 1.2em;
+
+      li {
+        width: auto;
+        min-width: 7em;
+        cursor: pointer;
+      }
+      
+      li:hover {
+        border-bottom: 0.1em solid $main-color;
+        background-color: $match-color-hover;
+      }
+    }
+  }
+}

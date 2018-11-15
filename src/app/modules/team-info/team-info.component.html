@@ -5,4 +5,6 @@
     <span class="name">{{ team.name }}</span>
     <app-teams-list [competitionId]="baseCompetition.id"></app-teams-list>
   </section>
+  <app-navigation-bar [items]="navItems" (itemClicked)="onNavItemClick($event)">
+  </app-navigation-bar>
 </div>

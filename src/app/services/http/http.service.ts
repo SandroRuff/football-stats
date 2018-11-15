@@ -115,14 +115,15 @@ export class HttpService {
   getAllTeamsInCompetition(id: number): Observable<Team[]> {
     return this.http.get<any>(`${this.url}/v2/competitions/${id}/teams`, { headers: this.headers })
       .pipe(
-        map(res => res.teams)
+        map(res => res.teams),
+        map(res => res.sort((a, b) => this.sortByName(a, b)))
       );
   }
   getTeam(id: number): Observable<Team> {
     return this.http.get<Team>(`${this.url}/v2/teams/${id}`, { headers: this.headers });
   }
 
-  // Methods
+  // Sort
   sortByArea(a: object, b: object) {
     if (a['competition']['area'] > b['competition']['area']) {
       return 1;
@@ -140,6 +141,15 @@ export class HttpService {
       if (a['competition']['rank'] < b['competition']['rank']) {
         return -1;
       }
+    }
+    return 0;
+  }
+  sortByName(a: Team, b: Team) {
+    if (a.name > b.name) {
+      return 1;
+    }
+    if (a.name < b.name) {
+      return -1;
     }
     return 0;
   }

@@ -17,6 +17,7 @@
     position: absolute;
     right: 0;
     top: 100%;
+    border-radius: 5px;
     
     li {
       list-style: none;
@@ -64,6 +65,7 @@
 
     ul {
       width: 40vw;
+      max-width: 12em;
       max-height: 5.7em; // (((0.75em + 1em) * 5) + 0.75em) * 0.6em
       top: 125%;
 
