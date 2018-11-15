@@ -12,8 +12,7 @@ import { HttpService } from 'src/app/services/http/http.service';
 })
 export class HierarchyBarComponent implements OnChanges {
   @Input() team: Team;
-
-  baseCompetition: { id: number; name: string };
+  @Input() baseCompetition: { id: number; name: string };
 
   constructor(private imageService: ImageService,
     private httpService: HttpService,
@@ -22,7 +21,6 @@ export class HierarchyBarComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    this.baseCompetition = this.getBaseCompetition();
     this.cdRef.detectChanges();
   }
 
@@ -35,18 +33,5 @@ export class HierarchyBarComponent implements OnChanges {
   }
   getImageErrorHandler(target) {
     this.imageService.getImageErrorHandler(target);
-  }
-
-  getBaseCompetition(): { id: number; name: string; } {
-    const comp = this.team.activeCompetitions;
-    for (let i = 0; i < comp.length; i++) {
-      if (comp[i].area.name === this.team.area.name && this.httpService.isCompetitionBase(comp[i].id)) {
-        return {
-          id: comp[i].id,
-          name: comp[i].name
-        };
-      }
-    }
-    return { id: null, name: null };
   }
 }

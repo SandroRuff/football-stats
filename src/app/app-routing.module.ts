@@ -10,11 +10,11 @@ const routes: Routes = [
   { path: 'matches', component: MatchesComponent },
   { path: 'matches/:id', component: MatchInfoComponent },
   { path: 'competition/:id', component: CompetitionInfoComponent },
-  { path: 'team/:id', component: TeamInfoComponent }
+  { path: 'team/:id', component: TeamInfoComponent, runGuardsAndResolvers: 'paramsChange' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

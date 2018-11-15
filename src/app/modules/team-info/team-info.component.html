@@ -1,3 +1,8 @@
 <div class="wrapper">
-  <app-hierarchy-bar [team]="team"></app-hierarchy-bar>
+  <app-hierarchy-bar [team]="team" [baseCompetition]="baseCompetition"></app-hierarchy-bar>
+  <section class="team">
+    <img class="icon" [attr.src]="getTeamImagePath()">
+    <span class="name">{{ team.name }}</span>
+    <app-teams-list [competitionId]="baseCompetition.id"></app-teams-list>
+  </section>
 </div>

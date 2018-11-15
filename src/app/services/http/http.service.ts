@@ -112,6 +112,12 @@ export class HttpService {
   }
 
   // Team
+  getAllTeamsInCompetition(id: number): Observable<Team[]> {
+    return this.http.get<any>(`${this.url}/v2/competitions/${id}/teams`, { headers: this.headers })
+      .pipe(
+        map(res => res.teams)
+      );
+  }
   getTeam(id: number): Observable<Team> {
     return this.http.get<Team>(`${this.url}/v2/teams/${id}`, { headers: this.headers });
   }
