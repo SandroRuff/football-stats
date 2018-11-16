@@ -190,7 +190,7 @@ export class HttpService {
     });
     return tempObj;
   }
-  isCompetitionBase(id: number): boolean {
-    return this.areas.some(item => item.id === id && item.rank === 1);
+  isCompetitionBase(compId: number): boolean {
+    return this.areas.some(area => area.id === compId && area.rank > 0);
   }
 }
