@@ -15,14 +15,6 @@ import { TeamInfoModule } from './modules/team-info/team-info.module';
 import { CompetitionInfoModule } from './modules/competition-info/competition-info.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SvgLibraryComponent,
-    HeaderComponent,
-    FooterComponent,
-    LeagueSetComponent,
-    GoUpBtnComponent
-  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -31,6 +23,14 @@ import { CompetitionInfoModule } from './modules/competition-info/competition-in
     MatchInfoModule,
     TeamInfoModule,
     CompetitionInfoModule
+  ],
+  declarations: [
+    AppComponent,
+    SvgLibraryComponent,
+    HeaderComponent,
+    FooterComponent,
+    LeagueSetComponent,
+    GoUpBtnComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

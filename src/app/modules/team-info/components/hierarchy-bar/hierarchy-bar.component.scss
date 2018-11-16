@@ -1,6 +1,6 @@
 @import '../../../../shares/stylings/variables';
 
-.competition {
+.bar {
   width: 100%;
   background-color: $light-color;
   padding: 0.75em 1.5em;
@@ -36,7 +36,7 @@
 }
 
 @media (min-width: 768px) {
-  .competition {
+  .bar {
     font-size: 1em;
   }
 }

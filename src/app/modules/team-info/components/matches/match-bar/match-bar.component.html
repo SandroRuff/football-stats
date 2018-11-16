@@ -1,9 +1,10 @@
 <a [ngClass]="['match', currentClass]" [routerLink]="['/matches/', match.id]">
+  <!-- Copetition -->
+  <img class="competition-icon" [attr.src]="getCompetitionIconPath(match.competition.id)">
   <!-- Start Time -->
-  <span class="start-time">{{ timePipe(match['utcDate']) }}</span>
+  <span class="start-day">{{ dayPipe() }}</span>
   <!-- Current Time -->
-  <div class="current-time" [ngSwitch]="match['status']">
-    <span *ngSwitchCase="'FINISHED'">FT</span>
+  <div class="current-time" [ngSwitch]="match.status">
     <span *ngSwitchCase="'IN_PLAY'" class="-in-play">{{ getCurrentTime(match['utcDate'])[0] }}'</span>
     <span *ngSwitchCase="'PAUSED'">HT</span>
   </div>
@@ -14,15 +15,9 @@
   <!-- Score -->
   <span class="score" *ngIf="match['status']!=='SCHEDULED'">
     {{ match['score']['fullTime']['homeTeam'] }} - {{ match['score']['fullTime']['awayTeam'] }}</span>
+  <span class="score" *ngIf="match['status']==='SCHEDULED'">-</span>
   <!-- Away Team -->
   <img class="icon-away" [attr.src]="getTeamIconPath('away')">
   <a class="team-away team" href="" [class.-winner]="isAwayWinner(match['score']['winner'])" [routerLink]="['/team/', match.awayTeam.id]"
     (click)="$event.stopPropagation()">{{ match['awayTeam']['name'] }}</a>
-  <!-- Half-Time Score -->
-  <div class="ht-score" *ngIf="match['status']!=='SCHEDULED'">
-    <span *ngIf="!getCurrentTime(match['utcDate'])[1]">({{ match['score']['fullTime']['homeTeam'] }}
-      - {{ match['score']['fullTime']['awayTeam'] }})</span>
-    <span *ngIf="getCurrentTime(match['utcDate'])[1]">({{ match['score']['halfTime']['homeTeam'] }}
-      - {{ match['score']['halfTime']['awayTeam'] }})</span>
-  </div>
 </a>

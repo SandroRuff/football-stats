@@ -1,10 +1,5 @@
 <div class="wrapper">
   <app-hierarchy-bar [team]="team" [baseCompetition]="baseCompetition"></app-hierarchy-bar>
-  <section class="team">
-    <img class="icon" [attr.src]="getTeamImagePath()">
-    <span class="name">{{ team.name }}</span>
-    <app-teams-list [competitionId]="baseCompetition.id"></app-teams-list>
-  </section>
-  <app-navigation-bar [items]="navItems" (itemClicked)="onNavItemClick($event)">
-  </app-navigation-bar>
+  <app-navigation-bar [items]="navItems" (itemClicked)="onNavItemClick()"></app-navigation-bar>
+  <app-team-overview *ngIf="navItems[0].isSelected" [baseCompetition]="baseCompetition" [team]="team"></app-team-overview>
 </div>

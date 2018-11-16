@@ -1,0 +1,37 @@
+@import '../../../../../shares/stylings/variables';
+
+.wrapper {
+  
+  .competition {
+    display: none;
+  }
+  
+  app-match {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    display: flex;
+    
+    .competition {
+      display: block;
+      padding-left: 1em;
+      background-color: $match-color;
+      align-self: stretch;
+      margin-bottom: 0.125em;
+      
+      img {
+        height: 1.25em;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .wrapper:hover {
+    .competition {
+      background-color: $match-color-hover;
+    }
+  }
+}

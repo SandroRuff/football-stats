@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Observer } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Team } from '../../interfaces/team';
 import { Areas } from '../../interfaces/areas';
+import { Match } from '../../interfaces/match';
+
+interface MatchesResponse {
+  count: number;
+  filters: {};
+  matches: Match[];
+}
 
 @Injectable({
   providedIn: 'root'
@@ -102,6 +109,22 @@ export class HttpService {
         })
       );
   }
+  getMatchesByPeriod(teamId: number, period: string[]): Observable<Match[]> {
+    return this.http.get<MatchesResponse>(`${this.url}/v2/teams/${teamId}/matches?dateFrom=${period[0]}&dateTo=${period[1]}`,
+      { headers: this.headers })
+      .pipe(
+        map(res => res.matches),
+        // Add SubData
+        map(res => res.map(item => {
+          if (item.status === 'IN_PLAY' || item.status === 'PAUSED') {
+            item['commonStatus'] = 'LIVE';
+          } else {
+            item['commonStatus'] = item.status;
+          }
+          return item;
+        }))
+      );
+  }
 
   // Competitions
   getAllCompetitions(): Observable<object> {
@@ -122,6 +145,7 @@ export class HttpService {
   getTeam(id: number): Observable<Team> {
     return this.http.get<Team>(`${this.url}/v2/teams/${id}`, { headers: this.headers });
   }
+
 
   // Sort
   sortByArea(a: object, b: object) {
@@ -167,11 +191,6 @@ export class HttpService {
     return tempObj;
   }
   isCompetitionBase(id: number): boolean {
-    for (let i = 0; i < this.areas.length; i++) {
-      if (this.areas[i].id === id && this.areas[i].rank === 1) {
-        return true;
-      }
-    }
-    return false;
+    return this.areas.some(item => item.id === id && item.rank === 1);
   }
 }

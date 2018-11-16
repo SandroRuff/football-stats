@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -8,15 +8,14 @@ import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter, Change
 })
 export class NavigationBarComponent {
   @Output() itemClicked = new EventEmitter<number>();
-  @Input() items: string[];
+  @Input() items: { title: string, isSelected: boolean }[];
 
   selectedItem = 0;
 
-  constructor(private cdRef: ChangeDetectorRef) { }
-
   onItemClick(index) {
+    this.items[this.selectedItem].isSelected = false;
+    this.items[index].isSelected = true;
     this.selectedItem = index;
-    this.cdRef.detectChanges();
-    this.itemClicked.emit(index);
+    this.itemClicked.emit();
   }
 }

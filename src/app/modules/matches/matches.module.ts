@@ -4,21 +4,21 @@ import { MatchesComponent } from './matches.component';
 import { MatchesContainerComponent } from './components/matches-container/matches-container.component';
 import { CompetitionTitleBarComponent } from './components/competition-title-bar/competition-title-bar.component';
 import { MatchesService } from './services/matches.service';
-import { MatchComponent } from './components/match/match.component';
 import { RouterModule } from '@angular/router';
-import { DataLoadingIndicatorComponent } from '../ui-components/data-loading-indicator/data-loading-indicator.component';
+import { SharedModule } from '../shared/shared.module';
+import { MatchComponent } from './components/match/match.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   declarations: [
     MatchesComponent,
     MatchesContainerComponent,
     CompetitionTitleBarComponent,
-    MatchComponent,
-    DataLoadingIndicatorComponent
+    MatchComponent
   ],
   providers: [MatchesService]
 })

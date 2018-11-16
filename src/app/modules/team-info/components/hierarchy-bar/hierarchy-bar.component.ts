@@ -2,7 +2,6 @@ import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges
 
 import { Team } from 'src/app/interfaces/team';
 import { ImageService } from 'src/app/services/image/image.service';
-import { HttpService } from 'src/app/services/http/http.service';
 
 @Component({
   selector: 'app-hierarchy-bar',
@@ -15,7 +14,6 @@ export class HierarchyBarComponent implements OnChanges {
   @Input() baseCompetition: { id: number; name: string };
 
   constructor(private imageService: ImageService,
-    private httpService: HttpService,
     private cdRef: ChangeDetectorRef) {
     cdRef.detach();
   }

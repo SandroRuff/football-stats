@@ -1,0 +1,66 @@
+// Import 
+@import '../../../../../shares/stylings/variables';
+
+.match {
+  padding: 0.5em 1em;
+  margin-bottom: 0.125em;
+  background-color: $match-color;
+  display: grid;
+  align-items: center;
+  text-decoration: none;
+
+  > * {
+    font-size: 0.75em;
+    color: $dark-text-color;
+  }
+  > img {
+    height: 1.142857142857143em;
+  }
+  .start-day {
+    font-size: 0.7em;
+    font-weight: 600;
+  }
+  .team {
+    font-family: $strict-font;
+    text-decoration: none;
+  }
+  .team:hover {
+    color: $main-color;
+  }
+  .team-home {
+    text-align: end;
+    justify-self: end;
+  }
+  .team-away {
+    justify-self: start;
+  }
+  .score {
+    font-family: $digit-font;
+  }
+  .current-time {
+    font-weight: 600;
+  }
+  .score {
+    font-weight: 500;
+    justify-self: center;
+  }
+}
+
+// Media
+// Large Tablet
+@media (min-width: 768px){
+  .match {
+    padding: 0.5em 2em;
+
+    > * {
+      font-size: 0.875em;
+    }
+    .start-day {
+      font-size: 0.8em;
+    }
+  }
+
+  .match:hover {
+    background-color: $match-color-hover;
+  }
+}

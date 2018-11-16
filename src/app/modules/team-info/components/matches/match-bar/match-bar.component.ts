@@ -1,15 +1,16 @@
 import { Component, Input, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/services/image/image.service';
-import { Match } from 'src/app/interfaces/match';
 import { MatchService } from 'src/app/services/match/match.service';
 
+import { Match } from 'src/app/interfaces/match';
+
 @Component({
-  selector: 'app-match',
-  templateUrl: './match.component.html',
-  styleUrls: ['./match.component.scss', './match-finished.scss', './match-live.scss', './match-scheduled.scss'],
+  selector: 'app-match-bar',
+  templateUrl: './match-bar.component.html',
+  styleUrls: ['./match-bar.component.scss', './match-bar.scss', './match-live.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MatchComponent implements OnInit {
+export class MatchBarComponent implements OnInit {
   @Input() match: Match;
 
   currentClass: string;
@@ -21,6 +22,9 @@ export class MatchComponent implements OnInit {
     this.currentClass = `-${this.match.commonStatus.toLowerCase()}`;
   }
 
+  getCompetitionIconPath(competitionId) {
+    return this.imageService.getCompetitionIconPath(competitionId);
+  }
   getTeamIconPath(teamType) {
     return this.imageService.getTeamIconPath(this.match['' + teamType + 'Team']['id']);
   }
@@ -36,7 +40,7 @@ export class MatchComponent implements OnInit {
     return this.matchService.getCurrentTime(startTime);
   }
 
-  timePipe(time: string) {
-    return this.matchService.timePipe(time);
+  dayPipe() {
+    return this.matchService.dayPipe(this.match.utcDate);
   }
 }

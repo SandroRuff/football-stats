@@ -1,10 +1,9 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { HttpService } from 'src/app/services/http/http.service';
+import { Subscription } from 'rxjs';
 
 import { Team } from '../../interfaces/team';
-import { ImageService } from 'src/app/services/image/image.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-team-info',
@@ -16,11 +15,16 @@ export class TeamInfoComponent implements OnInit, OnDestroy {
   team: Team;
   baseCompetition: { id: number; name: string };
   navigationSubscription: Subscription;
-  navItems: string[] = ['Overview', 'Matches', 'Squad', 'Information'];
+
+  navItems: { title: string, isSelected: boolean }[] = [
+    { 'title': 'Overview', 'isSelected': true },
+    { 'title': 'Matches', 'isSelected': false },
+    { 'title': 'Squad', 'isSelected': false },
+    { 'title': 'Information', 'isSelected': false }
+  ];
 
   constructor(private ar: ActivatedRoute,
     private httpService: HttpService,
-    private imageService: ImageService,
     private cdRef: ChangeDetectorRef,
     private router: Router) {
     this.cdRef.detach();
@@ -56,9 +60,6 @@ export class TeamInfoComponent implements OnInit, OnDestroy {
     }));
   }
 
-  getTeamImagePath() {
-    return this.imageService.getTeamIconPath(this.team.id);
-  }
   getBaseCompetition(): { id: number; name: string; } {
     const comp = this.team.activeCompetitions;
     for (let i = 0; i < comp.length; i++) {
@@ -72,7 +73,7 @@ export class TeamInfoComponent implements OnInit, OnDestroy {
     return { id: null, name: null };
   }
 
-  onNavItemClick(index) {
-    console.log(index);
+  onNavItemClick() {
+    this.cdRef.detectChanges();
   }
 }
