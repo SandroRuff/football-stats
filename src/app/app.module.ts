@@ -13,6 +13,7 @@ import { GoUpBtnComponent } from './modules/ui-components/go-up-btn/go-up-btn.co
 import { MatchInfoModule } from './modules/match-info/match-info.module';
 import { TeamInfoModule } from './modules/team-info/team-info.module';
 import { CompetitionInfoModule } from './modules/competition-info/competition-info.module';
+import { PlayerInfoModule } from './modules/player-info/player-info.module';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { CompetitionInfoModule } from './modules/competition-info/competition-in
     MatchesModule,
     MatchInfoModule,
     TeamInfoModule,
-    CompetitionInfoModule
+    CompetitionInfoModule,
+    PlayerInfoModule
   ],
   declarations: [
     AppComponent,

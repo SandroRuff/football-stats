@@ -1,0 +1,12 @@
+<a class="wrapper" [routerLink]="['/player', player.id]">
+  <svg class="photo">
+    <use xlink:href="#player" />
+  </svg>
+  <span class="name" *ngIf="player.role === 'PLAYER'">{{ player.name }}</span>
+  <span class="name" *ngIf="player.role !== 'PLAYER'">{{ player.name }} ({{ textPipe(player.role) | titlecase}})</span>
+  <div class="nationality" *ngIf="player.nationality">
+    <img class="icon" [attr.src]="getAreaIconPath()" (error)="getImageErrorHandler($event.target)">
+    <span class="name">{{ player.nationality }}</span>
+  </div>
+  <span class="age" *ngIf="player.dateOfBirth">{{ player.dateOfBirth | date: 'yyyy/MM/dd' }} ({{ getAge() }})</span>
+</a>

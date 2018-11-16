@@ -11,6 +11,9 @@ import { MatchesSetComponent } from './components/matches/matches-set/matches-se
 import { SharedModule } from '../shared/shared.module';
 import { MatchBarComponent } from './components/matches/match-bar/match-bar.component';
 import { TeamOverviewComponent } from './components/team-overview/team-overview.component';
+import { SquadStatisticsComponent } from './components/squad/squad-statistics/squad-statistics.component';
+import { SquadPlayersComponent } from './components/squad/squad-players/squad-players.component';
+import { PlayerComponent } from './components/squad/player/player.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { TeamOverviewComponent } from './components/team-overview/team-overview.
     FormComponent,
     MatchesSetComponent,
     MatchBarComponent,
-    TeamOverviewComponent
+    TeamOverviewComponent,
+    SquadStatisticsComponent,
+    SquadPlayersComponent,
+    PlayerComponent
   ]
 })
 export class TeamInfoModule { }

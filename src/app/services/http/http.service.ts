@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { Team } from '../../interfaces/team';
 import { Areas } from '../../interfaces/areas';
 import { Match } from '../../interfaces/match';
+import { Player } from 'src/app/interfaces/player';
 
 interface MatchesResponse {
   count: number;
@@ -106,7 +107,7 @@ export class HttpService {
             });
           }
           return tempArray;
-        })
+        }),
       );
   }
   getMatchesByPeriod(teamId: number, period: string[]): Observable<Match[]> {
@@ -145,7 +146,6 @@ export class HttpService {
   getTeam(id: number): Observable<Team> {
     return this.http.get<Team>(`${this.url}/v2/teams/${id}`, { headers: this.headers });
   }
-
 
   // Sort
   sortByArea(a: object, b: object) {

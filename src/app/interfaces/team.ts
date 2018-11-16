@@ -1,3 +1,5 @@
+import { Player } from './player';
+
 export interface Team {
   activeCompetitions: [{
     area: {
@@ -23,16 +25,7 @@ export interface Team {
   name: string;
   phone: string;
   shortName: string;
-  squad: [{
-    countryOfBirth: string,
-    dateOfBirth: string,
-    id: number,
-    name: string,
-    nationality: string,
-    position: string,
-    role: string,
-    shirtNumber: number
-  }];
+  squad: Player[];
   tla: string;
   venue: string;
   website: string;

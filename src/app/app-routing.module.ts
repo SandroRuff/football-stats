@@ -4,13 +4,15 @@ import { MatchesComponent } from './modules/matches/matches.component';
 import { MatchInfoComponent } from './modules/match-info/match-info.component';
 import { TeamInfoComponent } from './modules/team-info/team-info.component';
 import { CompetitionInfoComponent } from './modules/competition-info/competition-info.component';
+import { PlayerInfoComponent } from './modules/player-info/player-info.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'matches' },
   { path: 'matches', component: MatchesComponent },
   { path: 'matches/:id', component: MatchInfoComponent },
   { path: 'competition/:id', component: CompetitionInfoComponent },
-  { path: 'team/:id', component: TeamInfoComponent, runGuardsAndResolvers: 'paramsChange' }
+  { path: 'team/:id', component: TeamInfoComponent, runGuardsAndResolvers: 'paramsChange' },
+  { path: 'player/:id', component: PlayerInfoComponent, runGuardsAndResolvers: 'paramsChange' }
 ];
 
 @NgModule({

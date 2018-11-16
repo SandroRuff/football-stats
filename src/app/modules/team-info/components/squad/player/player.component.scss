@@ -1,0 +1,84 @@
+@import '../../../../../shares/stylings/variables';
+
+.wrapper {
+  height: 100%;
+  background-color: $match-color;
+  border: 0.05em solid $match-groupe-common-color;
+  padding: 0.5em 1em;
+  color: inherit;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'photo name name'
+    'photo nationality age';
+  grid-row-gap: 0.25em;
+  align-items: center;
+  
+  .photo {
+    width: 2em;
+    height: 3em;
+    margin-right: 1em;
+  }
+  > .name {
+    font-weight: 600;
+  }
+  .nationality {
+    display: table;
+
+    > * {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .icon {
+      height: 1em;
+      margin-right: 0.5em;
+    }
+    .name {
+      font-size: 0.85em;
+    }
+  }
+  .age {
+    font-family: $digit-font, sans-serif;
+    font-size: 0.65em;
+    margin-left: 1em;
+  }
+}
+
+// Grid Areas
+.wrapper {
+  .photo {
+    grid-area: photo;
+  }
+  .name {
+    grid-area: name;
+  }
+  .nationality {
+    grid-area: nationality;
+  }
+  .age {
+    grid-area: age;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    grid-row-gap: 0;
+    
+    .photo {
+      width: 3em;
+      height: 4.5em;
+      margin-right: 1em;
+    }
+    
+    .age {
+      font-size: 0.75em;
+    }
+  } 
+  
+  .wrapper:hover {
+    background-color: $match-color-hover;
+  }
+}

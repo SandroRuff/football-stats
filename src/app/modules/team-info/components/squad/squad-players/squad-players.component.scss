@@ -1,0 +1,35 @@
+.wrapper {
+  width: 100%;
+  
+  .group {
+    padding-right: 1em;
+    padding-top: 1em;
+    padding-left: 1em;
+    
+    span {
+      font-weight: 600;
+    }
+    
+    .players {
+      padding-top: 1em;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(17em, 1fr));
+      grid-auto-rows: auto;
+      grid-gap: 1em;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    
+    .group {
+      padding-right: 2em;
+      padding-left: 2em;
+      
+      span {
+        font-size: 1.25em;
+      }
+    }
+  }
+}
