@@ -1,9 +1,4 @@
 <div class="wrapper">
-  <section class="team">
-    <img class="icon" [attr.src]="getTeamImagePath()">
-    <span class="name">{{ team.name }}</span>
-    <app-teams-list [competitionId]="baseCompetition.id"></app-teams-list>
-  </section>
   <div class="matches">
     <app-section-bar [title]="'Matches'"></app-section-bar>
     <app-matches-set [teamId]="team.id"></app-matches-set>

@@ -1,5 +1,6 @@
 <div class="wrapper">
   <app-hierarchy-bar [team]="team" [baseCompetition]="baseCompetition"></app-hierarchy-bar>
   <app-navigation-bar [items]="navItems" (itemClicked)="onNavItemClick()"></app-navigation-bar>
-  <app-team-overview *ngIf="navItems[0].isSelected" [baseCompetition]="baseCompetition" [team]="team"></app-team-overview>
+  <app-element-preview [type]="'team'" [element]="team" [baseQuery]="baseCompetition"></app-element-preview>
+  <app-team-overview *ngIf="navItems[0].isSelected" [team]="team"></app-team-overview>
 </div>

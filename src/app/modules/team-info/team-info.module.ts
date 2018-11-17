@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TeamInfoComponent } from './team-info.component';
 import { RouterModule } from '@angular/router';
 import { HierarchyBarComponent } from './components/hierarchy-bar/hierarchy-bar.component';
-import { TeamsListComponent } from './components/teams-list/teams-list.component';
 import { NavigationBarComponent } from '../ui-components/navigation-bar/navigation-bar.component';
 import { SectionBarComponent } from '../ui-components/section-bar/section-bar.component';
 import { FormComponent } from './components/matches/form/form.component';
@@ -25,7 +24,6 @@ import { PlayerComponent } from './components/squad/player/player.component';
   declarations: [
     TeamInfoComponent,
     HierarchyBarComponent,
-    TeamsListComponent,
     NavigationBarComponent,
     SectionBarComponent,
     FormComponent,

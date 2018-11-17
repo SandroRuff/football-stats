@@ -18,6 +18,9 @@ export class ImageService {
   getTeamIconPath(id: number): string {
     return `src/assets/img/teams/${id}.png`;
   }
+  getPlayerIconPath(id: number): string {
+    return ``;
+  }
 
   getImageErrorHandler(target) {
     console.log('Image was replaced.');

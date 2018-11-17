@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DataLoadingIndicatorComponent } from '../ui-components/data-loading-indicator/data-loading-indicator.component';
+import { ElementPreviewComponent } from '../ui-components/element-preview/element-preview.component';
+import { ElementsListComponent } from '../ui-components/elements-list/elements-list.component';
 
 @NgModule({
   imports: [
@@ -9,10 +11,14 @@ import { DataLoadingIndicatorComponent } from '../ui-components/data-loading-ind
     RouterModule
   ],
   declarations: [
-    DataLoadingIndicatorComponent
+    DataLoadingIndicatorComponent,
+    ElementPreviewComponent,
+    ElementsListComponent
   ],
   exports: [
-    DataLoadingIndicatorComponent
+    DataLoadingIndicatorComponent,
+    ElementPreviewComponent,
+    ElementsListComponent
   ]
 })
 export class SharedModule { }
