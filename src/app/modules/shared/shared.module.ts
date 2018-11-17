@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { DataLoadingIndicatorComponent } from '../ui-components/data-loading-indicator/data-loading-indicator.component';
 import { ElementPreviewComponent } from '../ui-components/element-preview/element-preview.component';
 import { ElementsListComponent } from '../ui-components/elements-list/elements-list.component';
+import { MatchesModule } from '../matches/matches.module';
 
 @NgModule({
   imports: [

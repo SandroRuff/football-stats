@@ -1,7 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy, OnChanges } from '@angular/core';
+import { TeamService } from '../../team-info/services/team.service';
 
 import { Player } from 'src/app/interfaces/player';
-import { TeamService } from '../../../services/team.service';
 
 @Component({
   selector: 'app-squad-players',

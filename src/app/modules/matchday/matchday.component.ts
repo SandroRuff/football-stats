@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MatchesService } from './services/matches.service';
+import { MatchesService } from '../matches/services/matches.service';
 
 @Component({
-  selector: 'app-matches',
-  templateUrl: './matches.component.html',
-  styleUrls: ['./matches.component.scss']
+  selector: 'app-matchday',
+  templateUrl: './matchday.component.html',
+  styleUrls: ['./matchday.component.scss']
 })
-export class MatchesComponent implements OnInit {
+export class MatchdayComponent implements OnInit {
 
   currentTab = 0;
   isCalendarItemsVisible = false;

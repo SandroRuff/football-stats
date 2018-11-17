@@ -19,6 +19,7 @@ export class TeamInfoComponent implements OnInit, OnDestroy {
   navItems: { title: string, isSelected: boolean }[] = [
     { 'title': 'Overview', 'isSelected': true },
     { 'title': 'Matches', 'isSelected': false },
+    { 'title': 'Tables', 'isSelected': false },
     { 'title': 'Squad', 'isSelected': false },
     { 'title': 'Information', 'isSelected': false }
   ];

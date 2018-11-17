@@ -8,5 +8,5 @@
   </div>
 </div>
 <div class="no-matches" *ngIf="isEmptyTab() && !isDataLoading">No {{ tabs[currentTab]['name'] | lowercase }}
-  matches inthis day.</div>
+  matches in this day.</div>
 <app-data-loading-indicator *ngIf="isDataLoading"></app-data-loading-indicator>

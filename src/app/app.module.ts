@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MatchesModule } from './modules/matches/matches.module';
 import { SvgLibraryComponent } from './shares/svg-library/svg-library';
 import { HeaderComponent } from './modules/ui-components/header/header.component';
 import { FooterComponent } from './modules/ui-components/footer/footer.component';
@@ -14,17 +13,18 @@ import { MatchInfoModule } from './modules/match-info/match-info.module';
 import { TeamInfoModule } from './modules/team-info/team-info.module';
 import { CompetitionInfoModule } from './modules/competition-info/competition-info.module';
 import { PlayerInfoModule } from './modules/player-info/player-info.module';
+import { MatchdayModule } from './modules/matchday/matchday.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    MatchesModule,
     MatchInfoModule,
     TeamInfoModule,
     CompetitionInfoModule,
-    PlayerInfoModule
+    PlayerInfoModule,
+    MatchdayModule
   ],
   declarations: [
     AppComponent,

@@ -1,16 +1,16 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { Player } from 'src/app/interfaces/player';
-import { TeamService } from '../../../services/team.service';
 import { ImageService } from 'src/app/services/image/image.service';
+import { TeamService } from '../../team-info/services/team.service';
 
 @Component({
-  selector: 'app-player',
-  templateUrl: './player.component.html',
-  styleUrls: ['./player.component.scss'],
+  selector: 'app-player-article',
+  templateUrl: './player-article.component.html',
+  styleUrls: ['./player-article.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PlayerComponent {
+export class PlayerArticleComponent {
   @Input() player: Player;
 
   constructor(private teamService: TeamService,
