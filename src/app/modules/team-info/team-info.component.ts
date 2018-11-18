@@ -21,7 +21,7 @@ export class TeamInfoComponent implements OnInit, OnDestroy {
     { 'title': 'Matches', 'isSelected': false },
     { 'title': 'Tables', 'isSelected': false },
     { 'title': 'Squad', 'isSelected': false },
-    { 'title': 'Information', 'isSelected': false }
+    { 'title': 'Description', 'isSelected': false }
   ];
 
   constructor(private ar: ActivatedRoute,

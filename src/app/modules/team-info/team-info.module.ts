@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { TeamOverviewComponent } from './components/team-overview/team-overview.component';
 import { MatchesModule } from '../matches/matches.module';
 import { SquadModule } from '../squad/squad.module';
+import { TeamDescriptionComponent } from './components/team-description/team-description.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SquadModule } from '../squad/squad.module';
     NavigationBarComponent,
     SectionBarComponent,
     MatchesSetComponent,
-    TeamOverviewComponent
+    TeamOverviewComponent,
+    TeamDescriptionComponent
   ]
 })
 export class TeamInfoModule { }

@@ -34,17 +34,26 @@
   .team-away {
     justify-self: start;
   }
-  .score {
-    font-family: $digit-font;
-  }
   .current-time {
     font-weight: 600;
   }
   .score {
+    font-family: $digit-font;
     font-weight: 500;
     justify-self: center;
   }
+  // Classes
+  .-win {
+    color: rgba(0, 230, 0, 0.75);
+  }
+  .-draw {
+    color: rgba(100, 100, 100, 0.75);
+  }
+  .-lose {
+    color: rgba(230, 0, 0, 0.75);
+  }
 }
+
 
 // Media
 // Large Tablet

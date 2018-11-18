@@ -1,7 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/services/image/image.service';
 import { Match } from 'src/app/interfaces/match';
-import { MatchService } from 'src/app/services/match/match.service';
+import { MatchesService } from '../../services/matches.service';
 
 @Component({
   selector: 'app-match',
@@ -15,7 +15,7 @@ export class MatchComponent implements OnInit {
   currentClass: string;
 
   constructor(private imageService: ImageService,
-    private matchService: MatchService) { }
+    private matchesService: MatchesService) { }
 
   ngOnInit() {
     this.currentClass = `-${this.match.commonStatus.toLowerCase()}`;
@@ -26,17 +26,17 @@ export class MatchComponent implements OnInit {
   }
 
   isHomeWinner(obj) {
-    return this.matchService.isHomeWinner(obj);
+    return this.matchesService.isHomeWinner(obj);
   }
   isAwayWinner(obj) {
-    return this.matchService.isAwayWinner(obj);
+    return this.matchesService.isAwayWinner(obj);
   }
 
   getCurrentTime(startTime: Date) {
-    return this.matchService.getCurrentTime(startTime);
+    return this.matchesService.getCurrentTime(startTime);
   }
 
   timePipe(time: string) {
-    return this.matchService.timePipe(time);
+    return this.matchesService.timePipe(time);
   }
 }

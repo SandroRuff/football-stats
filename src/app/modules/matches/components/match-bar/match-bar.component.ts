@@ -1,8 +1,8 @@
 import { Component, Input, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/services/image/image.service';
-import { MatchService } from 'src/app/services/match/match.service';
 
 import { Match } from 'src/app/interfaces/match';
+import { MatchesService } from '../../services/matches.service';
 
 @Component({
   selector: 'app-match-bar',
@@ -12,14 +12,17 @@ import { Match } from 'src/app/interfaces/match';
 })
 export class MatchBarComponent implements OnInit {
   @Input() match: Match;
+  @Input() teamId: number;
 
   currentClass: string;
+  winStateClass: string;
 
   constructor(private imageService: ImageService,
-    private matchService: MatchService) { }
+    private matchesService: MatchesService) { }
 
   ngOnInit() {
     this.currentClass = `-${this.match.commonStatus.toLowerCase()}`;
+    this.winStateClass = `-${this.setWinState()}`;
   }
 
   getCompetitionIconPath(competitionId) {
@@ -30,17 +33,21 @@ export class MatchBarComponent implements OnInit {
   }
 
   isHomeWinner(obj) {
-    return this.matchService.isHomeWinner(obj);
+    return this.matchesService.isHomeWinner(obj);
   }
   isAwayWinner(obj) {
-    return this.matchService.isAwayWinner(obj);
+    return this.matchesService.isAwayWinner(obj);
   }
 
   getCurrentTime(startTime: Date) {
-    return this.matchService.getCurrentTime(startTime);
+    return this.matchesService.getCurrentTime(startTime);
   }
 
   dayPipe() {
-    return this.matchService.dayPipe(this.match.utcDate);
+    return this.matchesService.dayPipe(this.match.utcDate);
+  }
+
+  setWinState() {
+    return this.matchesService.setWinState(this.match, this.teamId);
   }
 }

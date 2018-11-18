@@ -2,6 +2,14 @@ import { Player } from './player';
 
 export interface Match {
   id: number;
+  homeTeam: {
+    id: number;
+    name: string;
+  };
+  awayTeam: {
+    id: number;
+    name: string;
+  };
   competition: {
     id: number,
     name: string
@@ -11,13 +19,31 @@ export interface Match {
     startDate: string,
     endDate: string,
     currentMatchday: number,
-    availableStages: [string]
+    availableStages: string[]
+  };
+  score: {
+    duration: string;
+    extraTime: {
+      homeTeam: number;
+      awayTeam: number;
+    };
+    fullTime: {
+      homeTeam: number;
+      awayTeam: number;
+    };
+    halfTime: {
+      homeTeam: number;
+      awayTeam: number;
+    };
+    penalties: {
+      homeTeam: number;
+      awayTeam: number;
+    };
+    winner: string;
   };
   utcDate: string;
   commonStatus: string;
   status: string;
-  minute: string;
-  attendance: number;
   matchday: number;
   stage: string;
   group: string;

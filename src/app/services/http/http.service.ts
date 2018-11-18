@@ -147,6 +147,11 @@ export class HttpService {
     return this.http.get<Team>(`${this.url}/v2/teams/${id}`, { headers: this.headers });
   }
 
+  // Test
+  // getTestData() {
+  //   return this.http.get<any>(`${this.url}/v2/competitions/2021/standings`, { headers: this.headers });
+  // }
+
   // Sort
   sortByArea(a: object, b: object) {
     if (a['competition']['area'] > b['competition']['area']) {

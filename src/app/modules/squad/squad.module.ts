@@ -4,6 +4,7 @@ import { SquadPlayersComponent } from './squad-players/squad-players.component';
 import { SquadStatisticsComponent } from './squad-statistics/squad-statistics.component';
 import { PlayerArticleComponent } from './player-article/player-article.component';
 import { RouterModule } from '@angular/router';
+import { PlayerStatisticComponent } from './player-statistic/player-statistic.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   declarations: [
     SquadPlayersComponent,
     SquadStatisticsComponent,
-    PlayerArticleComponent
+    PlayerArticleComponent,
+    PlayerStatisticComponent
   ],
   exports: [
     SquadPlayersComponent,

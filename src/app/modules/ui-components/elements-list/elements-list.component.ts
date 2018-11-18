@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, OnChanges, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Team } from 'src/app/interfaces/team';
 import { HttpService } from 'src/app/services/http/http.service';
 import { ImageService } from 'src/app/services/image/image.service';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./elements-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ElementsListComponent implements OnChanges {
+export class ElementsListComponent implements OnInit {
   @Input() type: string;
   @Input() queryId: number;
 
@@ -24,7 +24,7 @@ export class ElementsListComponent implements OnChanges {
     this.isElementsListVisible = false;
   }
 
-  ngOnChanges() {
+  ngOnInit() {
     let subscribtion: Subscription;
     const observer = {
       next: res => {

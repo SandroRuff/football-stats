@@ -11,7 +11,7 @@ export interface Team {
     name: string,
     plan: string
   }];
-  adress: string;
+  address: string;
   area: {
     id: number,
     name: string

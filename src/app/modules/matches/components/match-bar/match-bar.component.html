@@ -13,7 +13,7 @@
     (click)="$event.stopPropagation()">{{ match['homeTeam']['name'] }}</a>
   <img class="icon-home" [attr.src]="getTeamIconPath('home')">
   <!-- Score -->
-  <span class="score" *ngIf="match['status']!=='SCHEDULED'">
+  <span class="score" *ngIf="match['status']!=='SCHEDULED'" [ngClass]="winStateClass">
     {{ match['score']['fullTime']['homeTeam'] }} - {{ match['score']['fullTime']['awayTeam'] }}</span>
   <span class="score" *ngIf="match['status']==='SCHEDULED'">-</span>
   <!-- Away Team -->
