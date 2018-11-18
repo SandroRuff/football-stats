@@ -11,7 +11,7 @@ import { ImageService } from 'src/app/services/image/image.service';
 })
 export class HierarchyBarComponent implements OnChanges {
   @Input() team: Team;
-  @Input() baseCompetition: { id: number; name: string };
+  @Input() baseCompetition: { id: number; name: string; areaName: string; };
 
   constructor(private imageService: ImageService,
     private cdRef: ChangeDetectorRef) {
@@ -24,7 +24,7 @@ export class HierarchyBarComponent implements OnChanges {
 
   getIconPath(type) {
     switch (type) {
-      case 'area': return this.imageService.getAreaIconPath(this.team.area.name);
+      case 'area': return this.imageService.getAreaIconPath(this.baseCompetition.areaName);
       case 'competition': return this.imageService.getCompetitionIconPath(this.baseCompetition.id);
       case 'team': return this.imageService.getTeamIconPath(this.team.id);
     }

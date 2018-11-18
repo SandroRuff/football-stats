@@ -24,18 +24,18 @@ export class HttpService {
 
   // Areas
   areas: Areas[] = [
-    { 'id': 2000, 'name': 'World', 'rank': 1 },
-    { 'id': 2001, 'name': 'Europe', 'rank': 1 },
-    { 'id': 2002, 'name': 'Germany', 'rank': 1 },
-    { 'id': 2003, 'name': 'Netherlands', 'rank': 1 },
-    { 'id': 2013, 'name': 'Brazil', 'rank': 1 },
-    { 'id': 2014, 'name': 'Spain', 'rank': 1 },
-    { 'id': 2015, 'name': 'France', 'rank': 1 },
-    { 'id': 2016, 'name': 'England', 'rank': 2 },
-    { 'id': 2017, 'name': 'Portugal', 'rank': 1 },
-    { 'id': 2018, 'name': 'Europe', 'rank': 1 },
-    { 'id': 2019, 'name': 'Italy', 'rank': 1 },
-    { 'id': 2021, 'name': 'England', 'rank': 1 }
+    { 'id': 2000, 'name': 'World', 'rank': 1, 'isChampionship': false },
+    { 'id': 2001, 'name': 'Europe', 'rank': 1, 'isChampionship': false },
+    { 'id': 2002, 'name': 'Germany', 'rank': 1, 'isChampionship': true },
+    { 'id': 2003, 'name': 'Netherlands', 'rank': 1, 'isChampionship': true },
+    { 'id': 2013, 'name': 'Brazil', 'rank': 1, 'isChampionship': true },
+    { 'id': 2014, 'name': 'Spain', 'rank': 1, 'isChampionship': true },
+    { 'id': 2015, 'name': 'France', 'rank': 1, 'isChampionship': true },
+    { 'id': 2016, 'name': 'England', 'rank': 2, 'isChampionship': true },
+    { 'id': 2017, 'name': 'Portugal', 'rank': 1, 'isChampionship': true },
+    { 'id': 2018, 'name': 'Europe', 'rank': 1, 'isChampionship': false },
+    { 'id': 2019, 'name': 'Italy', 'rank': 1, 'isChampionship': true },
+    { 'id': 2021, 'name': 'England', 'rank': 1, 'isChampionship': true }
   ];
 
   constructor(private http: HttpClient) { }
@@ -196,6 +196,6 @@ export class HttpService {
     return tempObj;
   }
   isCompetitionBase(compId: number): boolean {
-    return this.areas.some(area => area.id === compId && area.rank > 0);
+    return this.areas.some(area => area.id === compId && area.isChampionship);
   }
 }

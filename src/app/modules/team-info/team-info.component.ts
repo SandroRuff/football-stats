@@ -61,17 +61,18 @@ export class TeamInfoComponent implements OnInit, OnDestroy {
     }));
   }
 
-  getBaseCompetition(): { id: number; name: string; } {
+  getBaseCompetition(): { id: number; name: string; areaName: string; } {
     const comp = this.team.activeCompetitions;
     for (let i = 0; i < comp.length; i++) {
-      if (comp[i].area.name === this.team.area.name && this.httpService.isCompetitionBase(comp[i].id)) {
+      if (this.httpService.isCompetitionBase(comp[i].id)) {
         return {
           id: comp[i].id,
-          name: comp[i].name
+          name: comp[i].name,
+          areaName: comp[i].area.name
         };
       }
     }
-    return { id: null, name: null };
+    return { id: null, name: null, areaName: null };
   }
 
   onNavItemClick() {

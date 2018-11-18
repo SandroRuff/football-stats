@@ -1,7 +1,7 @@
 <div class="bar">
   <a class="area">
     <img class="icon" [attr.src]="getIconPath('area')" (error)="getImageErrorHandler($event.target)">
-    <span>{{ team.area.name }}</span>
+    <span>{{ baseCompetition.areaName }}</span>
   </a>
   <span class="divider">-></span>
   <a class="competition" [routerLink]="['/competition/', baseCompetition.id]">
