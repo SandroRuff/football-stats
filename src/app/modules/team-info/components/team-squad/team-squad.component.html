@@ -1,0 +1,6 @@
+<section>
+  <app-section-bar [title]="'Squad'"></app-section-bar>
+  <app-navigation-bar [items]="navItems" (itemClicked)="onNavItemClick()"></app-navigation-bar>
+  <app-squad-players *ngIf="navItems[0].isSelected" [squad]="squad"></app-squad-players>
+  <app-squad-statistics *ngIf="navItems[1].isSelected" [squad]="squad"></app-squad-statistics>
+</section>
