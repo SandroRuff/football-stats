@@ -2,7 +2,6 @@ import { Component, Input, ChangeDetectionStrategy, OnChanges, ChangeDetectorRef
 import { HttpService } from 'src/app/services/http/http.service';
 import { Match } from 'src/app/interfaces/match';
 import { Subscription } from 'rxjs';
-import { ImageService } from 'src/app/services/image/image.service';
 import { formatDate } from '@angular/common';
 
 @Component({
@@ -19,8 +18,7 @@ export class MatchesSetComponent implements OnChanges {
   isDataLoading: boolean;
 
   constructor(private httpService: HttpService,
-    private cdRef: ChangeDetectorRef,
-    private imageService: ImageService) { }
+    private cdRef: ChangeDetectorRef) { }
 
   ngOnChanges() {
     this.isDataLoading = true;
