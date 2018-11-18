@@ -11,6 +11,7 @@ import { TeamOverviewComponent } from './components/team-overview/team-overview.
 import { MatchesModule } from '../matches/matches.module';
 import { SquadModule } from '../squad/squad.module';
 import { TeamDescriptionComponent } from './components/team-description/team-description.component';
+import { TeamSquadComponent } from './components/team-squad/team-squad.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { TeamDescriptionComponent } from './components/team-description/team-des
     SectionBarComponent,
     MatchesSetComponent,
     TeamOverviewComponent,
-    TeamDescriptionComponent
+    TeamDescriptionComponent,
+    TeamSquadComponent
   ]
 })
 export class TeamInfoModule { }
