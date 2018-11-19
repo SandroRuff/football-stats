@@ -6,7 +6,7 @@ import { MatchesService } from '../../services/matches.service';
 @Component({
   selector: 'app-match',
   templateUrl: './match.component.html',
-  styleUrls: ['./match.component.scss', './match-finished.scss', './match-live.scss', './match-scheduled.scss'],
+  styleUrls: ['./match.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MatchComponent implements OnInit {

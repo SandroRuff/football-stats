@@ -12,8 +12,9 @@
     (click)="$event.stopPropagation()">{{ match['homeTeam']['name'] }}</a>
   <img class="icon-home" [attr.src]="getTeamIconPath('home')">
   <!-- Score -->
-  <span class="score" *ngIf="match['status']!=='SCHEDULED'">
-    {{ match['score']['fullTime']['homeTeam'] }} - {{ match['score']['fullTime']['awayTeam'] }}</span>
+  <span class="score-home score" *ngIf="match['status']!=='SCHEDULED'">{{ match['score']['fullTime']['homeTeam'] }}</span>
+  <span class="divider">-</span>
+  <span class="score-away score" *ngIf="match['status']!=='SCHEDULED'">{{ match['score']['fullTime']['awayTeam'] }}</span>
   <!-- Away Team -->
   <img class="icon-away" [attr.src]="getTeamIconPath('away')">
   <a class="team-away team" href="" [class.-winner]="isAwayWinner(match['score']['winner'])" [routerLink]="['/team/', match.awayTeam.id]"

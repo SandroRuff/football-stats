@@ -7,12 +7,13 @@ import { MatchesService } from '../../services/matches.service';
 @Component({
   selector: 'app-match-bar',
   templateUrl: './match-bar.component.html',
-  styleUrls: ['./match-bar.component.scss', './match-bar.scss', './match-live.scss'],
+  styleUrls: ['./match-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MatchBarComponent implements OnInit {
   @Input() match: Match;
   @Input() teamId: number;
+  @Input() index: number;
 
   currentClass: string;
   winStateClass: string;

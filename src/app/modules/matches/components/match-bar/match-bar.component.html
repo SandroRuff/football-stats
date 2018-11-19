@@ -1,4 +1,4 @@
-<a [ngClass]="['match', currentClass]" [routerLink]="['/matches/', match.id]">
+<a [ngClass]="['match', currentClass]" [class.-odd-item]="(index + 1) % 2" [routerLink]="['/matches/', match.id]">
   <!-- Copetition -->
   <img class="competition-icon" [attr.src]="getCompetitionIconPath(match.competition.id)">
   <!-- Start Time -->
@@ -13,9 +13,11 @@
     (click)="$event.stopPropagation()">{{ match['homeTeam']['name'] }}</a>
   <img class="icon-home" [attr.src]="getTeamIconPath('home')">
   <!-- Score -->
-  <span class="score" *ngIf="match['status']!=='SCHEDULED'" [ngClass]="winStateClass">
-    {{ match['score']['fullTime']['homeTeam'] }} - {{ match['score']['fullTime']['awayTeam'] }}</span>
-  <span class="score" *ngIf="match['status']==='SCHEDULED'">-</span>
+  <span [ngClass]="['score-home', 'score', winStateClass]" *ngIf="match['status']!=='SCHEDULED'">{{
+    match['score']['fullTime']['homeTeam'] }}</span>
+  <span class="divider">-</span>
+  <span [ngClass]="['score-away', 'score', winStateClass]" *ngIf="match['status']!=='SCHEDULED'">{{
+    match['score']['fullTime']['awayTeam'] }}</span>
   <!-- Away Team -->
   <img class="icon-away" [attr.src]="getTeamIconPath('away')">
   <a class="team-away team" href="" [class.-winner]="isAwayWinner(match['score']['winner'])" [routerLink]="['/team/', match.awayTeam.id]"

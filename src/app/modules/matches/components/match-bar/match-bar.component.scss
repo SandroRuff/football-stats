@@ -2,55 +2,43 @@
 @import '../../../../shares/stylings/variables';
 
 .match {
-  padding: 0.5em 1em;
-  margin-bottom: 0.125em;
+  font-size: 0.9em;
+  padding: 0.35em 1em;
   background-color: $match-color;
-  display: grid;
-  align-items: center;
+  color: $dark-text-color;
   text-decoration: none;
-
-  > * {
-    font-size: 0.75em;
-    color: $dark-text-color;
-  }
-  > img {
+  align-items: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 1em;
+  grid-row-gap: 0.25em;
+  
+  img {
     height: 1.142857142857143em;
   }
   .start-day {
-    font-size: 0.7em;
-    font-weight: 600;
+    font-size: 0.9em;
   }
   .team {
     font-family: $strict-font;
-    text-decoration: none;
-  }
-  .team:hover {
-    color: $main-color;
-  }
-  .team-home {
-    text-align: end;
-    justify-self: end;
-  }
-  .team-away {
-    justify-self: start;
-  }
-  .start-day,
-  .current-time,
-  .score,
-  .icon-home,
-  .icon-away,
-  .competition-icon {
-    justify-self: center;
   }
   .current-time {
     font-weight: 600;
   }
+  .start-day,
   .score {
     font-family: $digit-font;
     font-weight: 500;
-    justify-self: center;
   }
-  // Classes
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  // State
+  .-winner {
+    font-weight: 700;
+  }
   .-win {
     color: rgba(0, 230, 0, 0.75);
   }
@@ -60,6 +48,86 @@
   .-lost {
     color: rgba(230, 0, 0, 0.75);
   }
+  .-in-play {
+    animation: blinking 1.5s linear 0.75s infinite alternate;
+  }
+}
+
+.-odd-item {
+  background-color: $light-color;
+}
+
+.-finished {
+  grid-template-columns: auto auto 1fr auto;
+  grid-template-areas: 
+    'competition-icon icon-home team-home score-home'
+    'competition-icon icon-away team-away score-away';
+
+  .start-day,
+  .current-time,
+  .divider {
+    display: none;
+  }
+}
+.-live {
+  grid-template-columns: auto auto 1fr auto auto;
+  grid-template-areas: 
+    'competition-icon icon-home team-home current-time score-home'
+    'competition-icon icon-away team-away current-time score-away';
+  
+  .current-time,
+  .score {
+    color: $live-color;
+  }
+
+  .start-day,
+  .divider {
+    display: none;
+  }
+}
+.-scheduled {
+  grid-template-columns: auto auto 1fr auto;
+  grid-template-areas: 
+    'competition-icon icon-home team-home start-day'
+    'competition-icon icon-away team-away start-day';
+
+  .current-time,
+  .score,
+  .divider {
+    display: none;
+  }
+}
+
+// Grid Areas
+.start-day {
+  grid-area: start-day;
+}
+.competition-icon {
+  grid-area: competition-icon;
+}
+.current-time {
+  grid-area: current-time;
+}
+.team-home {
+  grid-area: team-home;
+}
+.icon-home {
+  grid-area: icon-home;
+}
+.score-home {
+  grid-area: score-home;
+}
+.divider {
+  grid-area: divider;
+}
+.score-away {
+  grid-area: score-away;
+}
+.icon-away {
+  grid-area: icon-away;
+}
+.team-away {
+  grid-area: team-away;
 }
 
 
@@ -68,16 +136,80 @@
 @media (min-width: 768px){
   .match {
     padding: 0.5em 2em;
+    grid-template-rows: 1fr;
 
-    > * {
-      font-size: 0.875em;
+    .team-home {
+      justify-self: end;
     }
-    .start-day {
-      font-size: 0.8em;
+    .team-away {
+      justify-self: start;
+    }
+    .team:hover {
+      color: $main-color;
     }
   }
-
+  
   .match:hover {
     background-color: $match-color-hover;
+  }
+
+  .-finished {
+    grid-template-columns: auto 1em 1fr 1em auto 1em auto 0.5em auto 0.5em auto 1em auto 1em 1fr 1em auto;
+    grid-template-areas: 
+      'start-day . team-home . icon-home . score-home . divider . score-away . icon-away . team-away . competition-icon';
+    grid-column-gap: 0;
+    
+    .start-day,
+    .divider {
+      display: inline-block;
+    }
+  }
+  .-live {
+    grid-template-columns: auto 1em 1fr 1em auto 1em auto 0.5em auto 0.5em auto 1em auto 1em 1fr 1em auto;
+    grid-template-areas: 
+      'current-time . team-home . icon-home . score-home . divider . score-away . icon-away . team-away . competition-icon';
+    grid-column-gap: 0;
+      
+    .current-time,
+    .score {
+      color: $live-color;
+    }
+    .current-time {
+      padding: 0 0.5em;
+    }
+
+    .divider {
+      display: inline-block;
+    }
+  }
+  .-scheduled {
+    grid-template-columns: auto 1fr repeat(3, auto) 1fr auto;
+    grid-template-areas: 
+      'start-day team-home icon-home divider icon-away team-away competition-icon';
+  
+      .divider {
+        padding: 0 1em;
+      }
+
+      .score,
+      .divider {
+        display: inline-block;
+      }
+  }
+}
+
+// Keyframes
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
