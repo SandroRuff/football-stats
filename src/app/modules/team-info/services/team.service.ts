@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Standings } from 'src/app/interfaces/standings';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,9 @@ export class TeamService {
 
   textPipe(text: string): string {
     return text.match(/[A-Za-z]+/g).join(' ').toLowerCase();
+  }
+
+  getTeamGroupStandings(standingsArr: Standings[], teamId): Standings[] {
+    return standingsArr.filter(standings => standings.table.some(tableElement => tableElement.team.id === teamId));
   }
 }

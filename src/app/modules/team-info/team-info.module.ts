@@ -12,6 +12,8 @@ import { MatchesModule } from '../matches/matches.module';
 import { SquadModule } from '../squad/squad.module';
 import { TeamDescriptionComponent } from './components/team-description/team-description.component';
 import { TeamSquadComponent } from './components/team-squad/team-squad.component';
+import { TeamTablesComponent } from './components/team-tables/team-tables.component';
+import { TablesModule } from '../tables/tables.module';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { TeamSquadComponent } from './components/team-squad/team-squad.component
     RouterModule,
     SharedModule,
     MatchesModule,
-    SquadModule
+    SquadModule,
+    TablesModule
   ],
   declarations: [
     TeamInfoComponent,
@@ -30,7 +33,8 @@ import { TeamSquadComponent } from './components/team-squad/team-squad.component
     MatchesSetComponent,
     TeamOverviewComponent,
     TeamDescriptionComponent,
-    TeamSquadComponent
+    TeamSquadComponent,
+    TeamTablesComponent
   ]
 })
 export class TeamInfoModule { }

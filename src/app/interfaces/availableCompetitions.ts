@@ -1,4 +1,4 @@
-export interface Areas {
+export interface AvailableCompetition {
   id: number;
   name: string;
   rank: number;

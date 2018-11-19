@@ -1,4 +1,5 @@
 import { Player } from './player';
+import { Referee } from './referee';
 
 export interface Match {
   id: number;
@@ -47,11 +48,6 @@ export interface Match {
   matchday: number;
   stage: string;
   group: string;
-  lastUpdated: string;
-  referees: [{
-    id: number,
-    name: string,
-    nationality: string
-  }];
+  referees: Referee[];
   squad: Player[];
 }

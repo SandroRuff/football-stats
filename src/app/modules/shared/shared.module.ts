@@ -4,7 +4,9 @@ import { RouterModule } from '@angular/router';
 import { DataLoadingIndicatorComponent } from '../ui-components/data-loading-indicator/data-loading-indicator.component';
 import { ElementPreviewComponent } from '../ui-components/element-preview/element-preview.component';
 import { ElementsListComponent } from '../ui-components/elements-list/elements-list.component';
-import { MatchesModule } from '../matches/matches.module';
+import { NavigationBarStrechComponent } from '../ui-components/navigation-bar-strech/navigation-bar-strech.component';
+import { SectionBarWithSelectionComponent } from '../ui-components/section-bar-with-selection/section-bar-with-selection.component';
+import { SelectionsListComponent } from '../ui-components/selections-list/selections-list.component';
 
 @NgModule({
   imports: [
@@ -14,12 +16,18 @@ import { MatchesModule } from '../matches/matches.module';
   declarations: [
     DataLoadingIndicatorComponent,
     ElementPreviewComponent,
-    ElementsListComponent
+    ElementsListComponent,
+    NavigationBarStrechComponent,
+    SectionBarWithSelectionComponent,
+    SelectionsListComponent
   ],
   exports: [
     DataLoadingIndicatorComponent,
     ElementPreviewComponent,
-    ElementsListComponent
+    ElementsListComponent,
+    NavigationBarStrechComponent,
+    SectionBarWithSelectionComponent,
+    SelectionsListComponent
   ]
 })
 export class SharedModule { }

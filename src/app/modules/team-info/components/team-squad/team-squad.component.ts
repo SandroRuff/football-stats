@@ -9,8 +9,8 @@ import { Player } from 'src/app/interfaces/player';
 export class TeamSquadComponent implements OnInit {
   @Input() squad: Player[];
   navItems: { title: string, isSelected: boolean }[] = [
-    { 'title': 'Statistic', 'isSelected': true },
-    { 'title': 'Overview', 'isSelected': false }
+    { 'title': 'Overview', 'isSelected': true },
+    { 'title': 'Statistic', 'isSelected': false }
   ];
   constructor(private cdRef: ChangeDetectorRef) { }
   ngOnInit() {

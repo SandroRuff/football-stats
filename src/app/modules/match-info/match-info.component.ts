@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatchInfoService } from './services/match-info.service';
 
@@ -7,7 +7,7 @@ import { MatchInfoService } from './services/match-info.service';
   templateUrl: './match-info.component.html',
   styleUrls: ['./match-info.component.scss']
 })
-export class MatchInfoComponent implements OnInit {
+export class MatchInfoComponent {
 
   id: number;
   match: object;
@@ -16,10 +16,4 @@ export class MatchInfoComponent implements OnInit {
     private matchInfoService: MatchInfoService) {
     ar.params.subscribe(param => this.id = param.id);
   }
-
-  ngOnInit() {
-    const subscribtions = this.matchInfoService.getMatch(this.id)
-      .subscribe(res => console.log(res));
-  }
-
 }

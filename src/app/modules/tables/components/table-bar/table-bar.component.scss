@@ -1,0 +1,82 @@
+@import '../../../../shares/stylings/variables';
+
+.wrapper {
+  width: 100%;
+  background-color: $light-color;
+  font-size: 0.9em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  display: grid;
+  grid-template-columns: 10% 1fr 10% 10% 10%;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'position team match-played goal-difference points';
+
+  span {
+    min-width: 1.75em;
+    text-align: center;
+  }
+
+  .team {
+    text-align: start;
+  }
+
+  .won,
+  .draw,
+  .lost,
+  .goal-against,
+  .goal-for {
+    display: none;
+  }
+}
+
+//  Grid Areas
+.position {
+  grid-area: position;
+}
+.team {
+  grid-area: team;
+}
+.match-played {
+  grid-area: match-played;
+}
+.won {
+  grid-area: won;
+}
+.draw {
+  grid-area: draw;
+}
+.lost {
+  grid-area: lost;
+}
+.goal-for {
+  grid-area: goal-for;
+}
+.goal-against {
+  grid-area: goal-against;
+}
+.goal-difference {
+  grid-area: goal-difference;
+}
+.points {
+  grid-area: points;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 0.5em 2em;
+    grid-template-columns: 5% 1fr 5% 5% 5% 5% 5% 5% 5% 5%;
+    grid-template-areas: 'position team match-played won draw lost goal-for goal-against goal-difference points';
+  
+    span {
+      min-width: 3em;
+    }
+
+    .won,
+    .draw,
+    .lost,
+    .goal-against,
+    .goal-for {
+      display: inline-block;
+    }
+  }
+}

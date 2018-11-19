@@ -66,11 +66,11 @@ export class MatchesService {
         if (match.homeTeam.id === teamId) {
           return 'win';
         } else if (match.awayTeam.id === teamId) {
-          return 'lose';
+          return 'lost';
         }
       } else if (match.score.winner === 'AWAY_TEAM') {
         if (match.homeTeam.id === teamId) {
-          return 'lose';
+          return 'lost';
         } else if (match.awayTeam.id === teamId) {
           return 'win';
         }

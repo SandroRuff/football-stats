@@ -6,11 +6,6 @@
   grid-template: 'competition-icon . current-time . team-home . icon-home . score . icon-away . team-away' 1fr
     / 0.5fr 0.5em 1.25fr 0.5em 4fr 0.5em 0.5fr 0.5em 1.25fr 0.5em 0.5fr 0.5em 4fr;
 
-  .team-home,
-  .icon-home {
-    justify-self: end;
-    text-align: end;
-  }
   .current-time,
   .score {
     color: $live-color;
@@ -19,6 +14,10 @@
   // State
   .-in-play {
     animation: blinking 1.5s linear 0.75s infinite alternate;
+  }
+
+  .start-day {
+    display: none;
   }
 
   // Grid Areas

@@ -3,6 +3,10 @@
     <app-section-bar [title]="'Matches'"></app-section-bar>
     <app-matches-set [teamId]="team.id"></app-matches-set>
   </div>
+  <div class="table">
+    <app-section-bar [title]="'Table'"></app-section-bar>
+    <app-table-total [standings]="standings" [teamId]="team.id"></app-table-total>
+  </div>
   <div class="squad">
     <app-section-bar [title]="'Squad'"></app-section-bar>
     <app-squad-players [squad]="team.squad"></app-squad-players>

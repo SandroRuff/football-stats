@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, Observer } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Team } from '../../interfaces/team';
-import { Areas } from '../../interfaces/areas';
 import { Match } from '../../interfaces/match';
-import { Player } from 'src/app/interfaces/player';
+import { Competition } from 'src/app/interfaces/competition';
+import { StandingsRes } from 'src/app/interfaces/standingsRes';
+import { AvailableCompetition } from 'src/app/interfaces/availableCompetitions';
 
 interface MatchesResponse {
   count: number;
@@ -23,7 +24,7 @@ export class HttpService {
   url = 'http://api.football-data.org';
 
   // Areas
-  areas: Areas[] = [
+  availableCompetitions: AvailableCompetition[] = [
     { 'id': 2000, 'name': 'World', 'rank': 1, 'isChampionship': false },
     { 'id': 2001, 'name': 'Europe', 'rank': 1, 'isChampionship': false },
     { 'id': 2002, 'name': 'Germany', 'rank': 1, 'isChampionship': true },
@@ -131,8 +132,11 @@ export class HttpService {
   getAllCompetitions(): Observable<object> {
     return this.http.get<object>(`${this.url}/v2/competitions?plan=TIER_ONE`, { headers: this.headers });
   }
-  getCompetition(id: number): Observable<object> {
-    return this.http.get<object>(`${this.url}/v2/competitions/${id}`, { headers: this.headers });
+  getCompetition(id: number): Observable<Competition> {
+    return this.http.get<Competition>(`${this.url}/v2/competitions/${id}`, { headers: this.headers });
+  }
+  getStandings(id: number): Observable<StandingsRes> {
+    return this.http.get<StandingsRes>(`${this.url}/v2/competitions/${id}/standings`, { headers: this.headers });
   }
 
   // Team
@@ -187,7 +191,7 @@ export class HttpService {
   getArea(id: number): object {
     let tempObj: object = {};
     let status = true;
-    this.areas.forEach(item => {
+    this.availableCompetitions.forEach(item => {
       if (item['id'] === id && status) {
         tempObj = item;
         status = true;
@@ -196,6 +200,9 @@ export class HttpService {
     return tempObj;
   }
   isCompetitionBase(compId: number): boolean {
-    return this.areas.some(area => area.id === compId && area.isChampionship);
+    return this.availableCompetitions.some(area => area.id === compId && area.isChampionship);
+  }
+  isCompetitionAvailable(competitionId: number): boolean {
+    return this.availableCompetitions.some(competition => competition.id === competitionId);
   }
 }

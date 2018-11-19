@@ -1,27 +1,21 @@
 import { Player } from './player';
+import { Area } from './area';
 
 export interface Team {
   activeCompetitions: [{
-    area: {
-      id: number,
-      name: string
-    },
+    area: Area,
     id: number,
     lastUpdated: string,
     name: string,
     plan: string
   }];
   address: string;
-  area: {
-    id: number,
-    name: string
-  };
+  area: Area;
   clubColors: string;
   crestUrl: string;
   email: string;
   founded: number;
   id: number;
-  lastUpdated: string;
   name: string;
   phone: string;
   shortName: string;

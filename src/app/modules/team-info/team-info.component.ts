@@ -50,7 +50,6 @@ export class TeamInfoComponent implements OnInit, OnDestroy {
     const subscription = this.ar.params.subscribe(param => this.httpService.getTeam(param.id).subscribe({
       next: res => {
         this.team = res;
-        console.log(res);
       },
       error: console.error,
       complete: () => {
