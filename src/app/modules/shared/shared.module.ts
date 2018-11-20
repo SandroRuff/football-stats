@@ -4,9 +4,9 @@ import { RouterModule } from '@angular/router';
 import { DataLoadingIndicatorComponent } from '../ui-components/data-loading-indicator/data-loading-indicator.component';
 import { ElementPreviewComponent } from '../ui-components/element-preview/element-preview.component';
 import { ElementsListComponent } from '../ui-components/elements-list/elements-list.component';
-import { NavigationBarStrechComponent } from '../ui-components/navigation-bar-strech/navigation-bar-strech.component';
 import { SectionBarWithSelectionComponent } from '../ui-components/section-bar-with-selection/section-bar-with-selection.component';
 import { SelectionsListComponent } from '../ui-components/selections-list/selections-list.component';
+import { NavigationBarComponent } from '../ui-components/navigation-bar/navigation-bar.component';
 
 @NgModule({
   imports: [
@@ -17,17 +17,17 @@ import { SelectionsListComponent } from '../ui-components/selections-list/select
     DataLoadingIndicatorComponent,
     ElementPreviewComponent,
     ElementsListComponent,
-    NavigationBarStrechComponent,
     SectionBarWithSelectionComponent,
-    SelectionsListComponent
+    SelectionsListComponent,
+    NavigationBarComponent
   ],
   exports: [
     DataLoadingIndicatorComponent,
     ElementPreviewComponent,
     ElementsListComponent,
-    NavigationBarStrechComponent,
     SectionBarWithSelectionComponent,
-    SelectionsListComponent
+    SelectionsListComponent,
+    NavigationBarComponent
   ]
 })
 export class SharedModule { }

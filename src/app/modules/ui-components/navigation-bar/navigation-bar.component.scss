@@ -5,12 +5,12 @@
   background-color: $light-color;
 
   ul {
+    width: 100%;
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(33.33%, 1fr));
 
     li {
-      width: 33.33%;
       padding: 0.5em 1em;
       text-align: center;
       line-height: 1em;
@@ -28,10 +28,9 @@
   
     ul {
       font-size: 1.1em;
+      grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
 
       li {
-        width: auto;
-        min-width: 7em;
         cursor: pointer;
       }
       

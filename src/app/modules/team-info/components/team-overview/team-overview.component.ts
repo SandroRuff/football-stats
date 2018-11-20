@@ -4,6 +4,7 @@ import { HttpService } from 'src/app/services/http/http.service';
 import { Team } from 'src/app/interfaces/team';
 import { Standings } from 'src/app/interfaces/standings';
 import { Subscription } from 'rxjs';
+import { BaseCompetition } from '../../interfaces/baseCompetition';
 
 @Component({
   selector: 'app-team-overview',
@@ -13,7 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class TeamOverviewComponent implements OnChanges {
   @Input() team: Team;
-  @Input() baseCompetitionId: number;
+  @Input() baseCompetition: BaseCompetition;
 
   standings: Standings;
 
@@ -23,7 +24,7 @@ export class TeamOverviewComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    const subscription: Subscription = this.httpService.getStandings(this.baseCompetitionId).subscribe({
+    const subscription: Subscription = this.httpService.getStandings(this.baseCompetition.id).subscribe({
       next: res => this.standings = res.standings[0],
       error: console.error,
       complete: () => {

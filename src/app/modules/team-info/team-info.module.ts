@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TeamInfoComponent } from './team-info.component';
 import { RouterModule } from '@angular/router';
 import { HierarchyBarComponent } from './components/hierarchy-bar/hierarchy-bar.component';
-import { NavigationBarComponent } from '../ui-components/navigation-bar/navigation-bar.component';
 import { SectionBarComponent } from '../ui-components/section-bar/section-bar.component';
 import { MatchesSetComponent } from './components/team-overview/matches-set/matches-set.component';
 import { SharedModule } from '../shared/shared.module';
@@ -28,7 +27,6 @@ import { TablesModule } from '../tables/tables.module';
   declarations: [
     TeamInfoComponent,
     HierarchyBarComponent,
-    NavigationBarComponent,
     SectionBarComponent,
     MatchesSetComponent,
     TeamOverviewComponent,

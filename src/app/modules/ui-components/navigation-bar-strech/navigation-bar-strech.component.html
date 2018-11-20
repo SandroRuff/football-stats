@@ -1,6 +1,0 @@
-<div class="wrapper">
-  <ul>
-    <li *ngFor="let item of items; let i = index;" [class.-selected]="selectedItem === i" (click)="onItemClick(i)">
-      {{ item.title }}</li>
-  </ul>
-</div>

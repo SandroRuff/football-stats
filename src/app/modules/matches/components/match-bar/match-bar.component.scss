@@ -21,6 +21,9 @@
   }
   .team {
     font-family: $strict-font;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   .current-time {
     font-weight: 600;
