@@ -25,13 +25,6 @@ export class MatchComponent implements OnInit {
     return this.imageService.getTeamIconPath(this.match['' + teamType + 'Team']['id']);
   }
 
-  isHomeWinner(obj) {
-    return this.matchesService.isHomeWinner(obj);
-  }
-  isAwayWinner(obj) {
-    return this.matchesService.isAwayWinner(obj);
-  }
-
   getCurrentTime(startTime: Date) {
     return this.matchesService.getCurrentTime(startTime);
   }

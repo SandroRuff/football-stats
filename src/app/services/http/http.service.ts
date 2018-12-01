@@ -42,7 +42,13 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   // Matches
-  getAllMatches(date: string): Observable<any> {
+  getAllTeamMatches(id: number): Observable<Match[]> {
+    return this.http.get<MatchesResponse>(`${this.url}/v2/teams/${id}/matches`, { headers: this.headers })
+      .pipe(
+        map(res => res.matches)
+      );
+  }
+  getAllSortedMatches(date: string): Observable<any> {
     return this.http.get<any>(`${this.url}/v2/matches?dateFrom=${date}&dateTo=${date}`, { headers: this.headers })
       // Filtering
       .pipe(
@@ -153,7 +159,9 @@ export class HttpService {
 
   // Test
   // getTestData() {
-  //   return this.http.get<any>(`${this.url}/v2/competitions/2021/standings`, { headers: this.headers });
+  //   const head = new HttpHeaders().set('X-Originating-IP', '46.216.30.94');
+  // tslint:disable-next-line:max-line-length
+  //   return this.http.get<any>(`https://api.sportradar.us/soccer-t3/eu/en/schedules/2018-11-25/schedule.json?api_key=3racz766cah2dq65drpcxryc`, { headers: head });
   // }
 
   // Sort

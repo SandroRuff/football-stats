@@ -13,6 +13,7 @@ import { TeamDescriptionComponent } from './components/team-description/team-des
 import { TeamSquadComponent } from './components/team-squad/team-squad.component';
 import { TeamTablesComponent } from './components/team-tables/team-tables.component';
 import { TablesModule } from '../tables/tables.module';
+import { TeamMatchesComponent } from './components/team-matches/team-matches.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { TablesModule } from '../tables/tables.module';
     TeamOverviewComponent,
     TeamDescriptionComponent,
     TeamSquadComponent,
-    TeamTablesComponent
+    TeamTablesComponent,
+    TeamMatchesComponent
   ]
 })
 export class TeamInfoModule { }

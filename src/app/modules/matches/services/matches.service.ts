@@ -6,14 +6,24 @@ import { Match } from 'src/app/interfaces/match';
   providedIn: 'root'
 })
 export class MatchesService {
-
-  constructor() { }
-
-  isHomeWinner(obj) {
-    return obj === 'HOME_TEAM';
-  }
-  isAwayWinner(obj) {
-    return obj === 'AWAY_TEAM';
+  setWinState(match: Match, teamId: number): string {
+    if (match.status === 'FINISHED') {
+      if (match.score.winner === 'HOME_TEAM') {
+        if (match.homeTeam.id === teamId) {
+          return 'win';
+        } else if (match.awayTeam.id === teamId) {
+          return 'lost';
+        }
+      } else if (match.score.winner === 'AWAY_TEAM') {
+        if (match.homeTeam.id === teamId) {
+          return 'lost';
+        } else if (match.awayTeam.id === teamId) {
+          return 'win';
+        }
+      } else {
+        return 'draw';
+      }
+    }
   }
   // Pipes
   getDays(): string[] {
@@ -48,35 +58,22 @@ export class MatchesService {
   }
   timePipe(time: string): string {
     const minute: string = time.slice(14, 16);
+    let meridiem: string;
     let hour: string | number = time.slice(11, 13);
-    if (+hour > 12) {
+    if (+hour >= 12) {
       hour = +hour - 12;
-      return `${hour}:${minute} PM`;
+      meridiem = 'PM';
     } else {
-      return `${hour}:${minute} AM`;
+      meridiem = 'AM';
     }
+    if (+hour === 0) {
+      hour = 12;
+    } else if (+hour < 10) {
+      hour = `0${hour}`;
+    }
+    return `${hour}:${minute} ${meridiem}`;
   }
   dayPipe(date): string {
     return formatDate(date, 'MM/dd', 'en');
-  }
-
-  setWinState(match: Match, teamId: number): string {
-    if (match.status === 'FINISHED') {
-      if (match.score.winner === 'HOME_TEAM') {
-        if (match.homeTeam.id === teamId) {
-          return 'win';
-        } else if (match.awayTeam.id === teamId) {
-          return 'lost';
-        }
-      } else if (match.score.winner === 'AWAY_TEAM') {
-        if (match.homeTeam.id === teamId) {
-          return 'lost';
-        } else if (match.awayTeam.id === teamId) {
-          return 'win';
-        }
-      } else {
-        return 'draw';
-      }
-    }
   }
 }

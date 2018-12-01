@@ -24,7 +24,7 @@ export class MatchesContainerComponent implements OnChanges {
   ngOnChanges() {
     if (this.currentDay !== this.selectedDay) {
       this.isDataLoading = true;
-      const subscribtion = this.httpService.getAllMatches(this.selectedDay).subscribe({
+      const subscribtion = this.httpService.getAllSortedMatches(this.selectedDay).subscribe({
         next: (res) => {
           this.matches = res;
           this.getMatchesCount(res);

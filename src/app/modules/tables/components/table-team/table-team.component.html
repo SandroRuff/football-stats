@@ -1,7 +1,9 @@
 <div class="tableElement" [class.-odd-element]="(index + 1) % 2" [class.-current-team]="tableElement.team.id === teamId">
   <span class=" position">{{ tableElement.position }}</span>
   <div class="team">
-    <img [attr.src]="getTeamIconPath(tableElement.team.id)" (error)="getImageErrorHandler($event.target)">
+    <div class="icon">
+      <img [attr.src]="getTeamIconPath(tableElement.team.id)" (error)="getImageErrorHandler($event.target)">
+    </div>
     <a [routerLink]="['/team/', tableElement.team.id]">{{ tableElement.team.name }}</a>
   </div>
   <span class="match-played">{{ tableElement.playedGames }}</span>

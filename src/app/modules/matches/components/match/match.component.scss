@@ -1,5 +1,6 @@
 // Import 
 @import '../../../../shares/stylings/variables';
+@import '../../../../shares/stylings/mixins';
 
 .match {
   font-size: 0.9em;
@@ -14,19 +15,16 @@
   grid-column-gap: 1em;
   grid-row-gap: 0.25em;
 
-  img {
-    height: 1.142857142857143em;
+  .icon {
+    min-width: 1.142857142857143em;
+    text-align: center;
+    &, img {
+      height: 1.142857142857143em;
+    }
   }
   .team {
     font-family: $strict-font;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-  .score,
-  .divider,
-  .ht-score {
-    font-family: $digit-font;
+    @include hideOverflow;
   }
   .current-time {
     font-weight: 600;
@@ -37,6 +35,12 @@
   .score,
   .divider {
     font-weight: 500;
+    @at-root .ht-score, & {
+      font-family: $digit-font;
+    }
+  }
+  .score {
+    font-size: 1.1em;
   }
   a {
     color: inherit;
@@ -76,14 +80,12 @@
   }
 
   // State
-  .-winner {
-    font-weight: 700;
-  }
   .-in-play {
     animation: blinking 1.5s linear 0.75s infinite alternate;
   }
 }
 
+// State
 .-finished {
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 
@@ -95,6 +97,10 @@
   .ht-score,
   .divider {
     display: none;
+  }
+  // State
+  .-winner {
+    font-weight: 700;
   }
 }
 .-live {
@@ -149,11 +155,21 @@
     .team:hover {
       color: $main-color;
     }
+    .current-time,
+    .ht-score {
+      width: 3.5em;
+    }
+    .score {
+      font-size: 1em;
+    }
+    .ht-score {
+      text-align: end;
+    }
+    &:hover {
+      background-color: $match-color-hover;
+    }
   }
 
-  .match:hover {
-    background-color: $match-color-hover;
-  }
 
   // State
   .-finished,
@@ -171,9 +187,14 @@
     }
   }
   .-scheduled {
-    grid-template-columns: 1fr repeat(3, auto) 1fr;
+    grid-template-columns: auto 1fr repeat(3, auto) 1fr;
     grid-template-areas: 
-      'team-home icon-home start-time icon-away team-away';
+      'start-time team-home icon-home divider icon-away team-away';
+
+    .divider {
+      display: inline-block;
+      padding: 0 0.9em;
+    }
   }
 }
 

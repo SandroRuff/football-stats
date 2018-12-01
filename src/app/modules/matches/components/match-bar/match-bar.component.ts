@@ -22,7 +22,11 @@ export class MatchBarComponent implements OnInit {
     private matchesService: MatchesService) { }
 
   ngOnInit() {
-    this.currentClass = `-${this.match.commonStatus.toLowerCase()}`;
+    if (this.match.commonStatus) {
+      this.currentClass = `-${this.match.commonStatus.toLowerCase()}`;
+    } else {
+      this.currentClass = `-${this.match.status.toLowerCase()}`;
+    }
     this.winStateClass = `-${this.setWinState()}`;
   }
 
@@ -31,13 +35,6 @@ export class MatchBarComponent implements OnInit {
   }
   getTeamIconPath(teamType) {
     return this.imageService.getTeamIconPath(this.match['' + teamType + 'Team']['id']);
-  }
-
-  isHomeWinner(obj) {
-    return this.matchesService.isHomeWinner(obj);
-  }
-  isAwayWinner(obj) {
-    return this.matchesService.isAwayWinner(obj);
   }
 
   getCurrentTime(startTime: Date) {

@@ -1,5 +1,6 @@
 // Import 
 @import '../../../../shares/stylings/variables';
+@import '../../../../shares/stylings/mixins';
 
 .match {
   font-size: 0.9em;
@@ -13,17 +14,20 @@
   grid-column-gap: 1em;
   grid-row-gap: 0.25em;
   
-  img {
+  .icon, img {
     height: 1.142857142857143em;
+  }
+  .icon {
+    min-width: 1.142857142857143em;
+    text-align: center;
   }
   .start-day {
     font-size: 0.9em;
   }
   .team {
+    justify-self: start;
     font-family: $strict-font;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    @include hideOverflow;
   }
   .current-time {
     font-weight: 600;
@@ -32,6 +36,9 @@
   .score {
     font-family: $digit-font;
     font-weight: 500;
+  }
+  .score {
+    font-size: 1.1em;
   }
   a {
     color: inherit;
@@ -144,11 +151,11 @@
     .team-home {
       justify-self: end;
     }
-    .team-away {
-      justify-self: start;
-    }
     .team:hover {
       color: $main-color;
+    }
+    .score {
+      font-size: 1em;
     }
   }
   
