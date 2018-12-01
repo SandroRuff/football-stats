@@ -1,0 +1,10 @@
+@import '../../../shares/stylings/variables';
+
+section {
+  background-color: $light-color;
+  padding: 1em;
+}
+
+@media (min-width: 768px) {
+  padding: 1em 2em;
+}

@@ -1,0 +1,5 @@
+<div class="wrapper">
+  <app-table-bar></app-table-bar>
+  <app-table-team *ngFor="let tableElement of standings.table; let i = index" [index]="i" [tableElement]="tableElement"
+    [teamId]="teamId"></app-table-team>
+</div>

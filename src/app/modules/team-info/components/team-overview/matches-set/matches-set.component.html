@@ -1,0 +1,4 @@
+<div *ngIf="!isDataLoading">
+  <app-match-bar *ngFor="let match of matches; let i = index" [teamId]="teamId" [match]="match" [index]="i"></app-match-bar>
+</div>
+<app-data-loading-indicator *ngIf="isDataLoading"></app-data-loading-indicator>

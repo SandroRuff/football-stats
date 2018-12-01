@@ -1,0 +1,83 @@
+@import '../../../shares/stylings/variables';
+
+.wrapper {
+  position: relative;
+
+  .elements {
+    span {
+      display: none;
+    }
+
+    svg {
+      fill: $light-color;
+    }
+  }
+  
+  ul {
+    width: 60vw;
+    max-height: 9.5em; // (((0.75em + 1em) * 5) + 0.75em) * 1em
+    overflow-y: scroll;
+    z-index: 100;
+    background-color: $light-color;
+    position: absolute;
+    right: 0;
+    top: 150%;
+    border-radius: 5px;
+    
+    li {
+      list-style: none;
+      padding-top: 0.75em;
+      padding-right: 1em;
+      padding-left: 1em;
+      line-height: 1em;
+      
+      div {
+        text-decoration: none;
+        color: $dark-color;
+        
+        .icon {
+          height: 0.75em;
+          margin-right: 0.5em;
+        }
+        
+        .name {
+          opacity: 0.5;
+        }
+      }
+    }
+    
+    li:last-child {
+      padding-bottom: 0.75em;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    font-size: 0.75em;
+    
+    .elements {
+      opacity: 0.75;
+      cursor: pointer;
+      
+      span {
+        display: inline-block;
+        margin-right: 0.5em;
+      }
+    }
+    
+    ul {
+      width: 16em;
+      max-height: 5.7em; // (((0.75em + 1em) * 5) + 0.75em) * 0.6em
+      top: 125%;
+      
+      li {
+        cursor: pointer;
+        
+        div:hover {
+          color: $main-color;
+        }
+      }
+    }
+  }
+}

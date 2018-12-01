@@ -1,0 +1,39 @@
+// Import
+@import '../../../shares/stylings/variables';
+
+// Styles
+.footer {
+  width: 100%;
+  background-color: $dark-color;
+  font-family: $deco-font;
+  color: $light-text-color;
+  
+  .wrapper {
+    max-width: $wrapper-width;
+    margin: 0 auto;
+    padding: 1em 1.5em;
+    
+    span {
+      font-size: 0.8em;
+    }
+    
+    a {
+      color: inherit;
+    }
+    
+    a:hover {
+      color: $main-color;
+    }
+  }
+}
+
+@media (min-height: 768px) {
+  .footer {
+    .wrapper{
+      span {
+        font-size: 1.05em;
+        line-height: 1.2em;
+      }
+    }
+  }
+}

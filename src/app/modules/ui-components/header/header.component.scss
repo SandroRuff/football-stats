@@ -1,0 +1,104 @@
+// Import
+@import '../../../shares/stylings/variables';
+
+// Styles
+.header {
+  background-color: $main-color;
+  font-family: $deco-font;
+  color: $light-text-color;
+  
+  .wrapper {
+    max-width: $wrapper-width;
+    height: 100%;
+    margin: 0 auto;
+    
+    svg {
+      fill: #fff;
+      display: block;
+    }
+    
+    
+    .left {
+      .logo {
+        font-size: 0.9em;
+        font-weight: 600;
+        margin: 0 1.25em;
+        color: inherit;
+        text-decoration: none;
+      }
+      
+      .divider {
+        display: none;
+      }  
+      
+      .page-title {
+        position: relative;
+        svg {
+          position: absolute;
+          left: 35%;
+          bottom: -0.3em;
+        }
+      }
+    }
+    
+    .right {
+      > * {
+        margin-right: 1.25em;
+      }
+    }
+    
+    .login,
+    .page-title {
+      font-size: 0.9em;
+      padding-top: 1em;
+      padding-bottom: 1.125em;
+    }
+
+    &,
+    .left,
+    .right {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo,
+    .login,
+    .search,
+    .settings {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    .wrapper {
+      .left {
+        .logo {
+          font-size: 1em;
+          margin: 0 2em;
+        }
+        
+        .divider {
+          width: 0.125em;
+          height: 2.625em;
+          display: block;
+          background-color: $light-text-color;
+          margin-right: 2em;
+        }
+      }
+      
+      .right {
+        > * {
+          margin-right: 2em;
+        }
+      }
+
+      .login,
+      .page-title {
+        font-size: 1.2em;
+      }
+    }
+  }
+}

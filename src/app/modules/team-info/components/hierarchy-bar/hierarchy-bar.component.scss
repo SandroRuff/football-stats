@@ -1,0 +1,42 @@
+@import '../../../../shares/stylings/variables';
+
+.bar {
+  width: 100%;
+  background-color: $light-color;
+  padding: 0.75em 1.5em;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.9em;
+
+  > * {
+    display: flex;
+    align-items: center;
+  }
+  
+  a {
+    text-decoration: none;
+    
+    span:hover {
+      color: $main-color;
+    }
+  }
+  
+  img {
+    height: 1em;
+    margin-right: 0.5em;
+  }
+  
+  .divider {
+    margin: 0 0.5em;
+  }
+  
+  span {
+    color: $dark-color;
+  }
+}
+
+@media (min-width: 768px) {
+  .bar {
+    font-size: 1em;
+  }
+}

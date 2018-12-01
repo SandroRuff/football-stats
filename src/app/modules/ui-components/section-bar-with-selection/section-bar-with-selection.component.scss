@@ -1,0 +1,21 @@
+@import '../../../shares/stylings/variables';
+
+
+.bar {
+  width: 100%;
+  background-color: $main-color;
+  color: $light-color;
+  line-height: 1em;
+  padding: 0.75em 1em;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media (min-width: 768px) {
+  .bar {
+    font-size: 1.2em;
+    padding: 0.5em 2em;
+  }
+}

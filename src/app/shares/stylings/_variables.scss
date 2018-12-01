@@ -7,17 +7,18 @@ $match-groupe-color25: rgba(243, 234, 186, 25);
 $match-groupe-common-color: rgb(195, 195, 195);
 $match-color: rgb(245, 245, 245);
 $match-color-hover: rgb(235, 235, 235);
-$light-color: #ffffff;
-$light-text-color: #ffffff;
+$light-color: rgb(255, 255, 255);
+$light-color-hover: rgba(51, 51, 51, 0.1);
+$light-text-color: rgb(255, 255, 255);
 $dark-color: rgb(51, 51, 51);
 $dark-text-color: rgb(51, 51, 51);
 $dark-text-color75: rgba(51, 51, 51, 0.75);
 $live-color: rgba(255, 0, 0, 0.75);
 
 // Fonts
-$deco-font: 'KoHo';
-$strict-font: 'Nunito';
-$digit-font: 'Roboto';
+$deco-font: 'KoHo', sans-serif;
+$strict-font: 'Nunito', sans-serif;
+$digit-font: 'Roboto', sans-serif;
 
 // Width
 $wrapper-width: 56.25em;

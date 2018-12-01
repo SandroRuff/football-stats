@@ -1,0 +1,59 @@
+// Import
+@import '../../../../shares/stylings/variables';
+
+// Styles
+.competition {
+  width: 100%;
+  min-height: 1.25em;
+  padding: 0.3em 0;
+  background-color: $match-groupe-color;
+  display: grid;
+  grid-template: ' . flag . competition table .' 1fr / 1em 0.5fr 1em 18fr 1.25fr 1em;
+  align-items: center;
+
+  img {
+    width: 1.2em;
+    grid-area: flag;
+  }
+  
+  .name {
+    font-size: 0.85em;
+    font-weight: 600;
+    opacity: 0.75;
+    grid-area: competition;
+    justify-self: start;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .table {
+    font-size: 0.8em;
+    color: $dark-text-color75;
+    font-weight: 600;
+    grid-area: table;
+    justify-self: end;
+  }
+
+  .name:hover,
+  .table:hover {
+    color: $main-color;
+  }
+}
+
+@media (min-width: 768px) {
+  .competition {
+    grid-template: ' . flag . competition table .' 1fr / 2em 0.5fr 1em 18fr 1fr 2em;
+
+    img {
+      width: 1.3em;
+    }
+
+    .name {
+      font-size: 0.9em;
+    }
+
+    .table {
+      font-size: 0.9em;
+    }
+  }
+}

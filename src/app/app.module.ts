@@ -4,16 +4,28 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MatchesModule } from './matches/matches.module';
 import { SvgLibraryComponent } from './shares/svg-library/svg-library';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { LeagueSetComponent } from './league-set/league-set.component';
-import { GoUpBtnComponent } from './go-up-btn/go-up-btn.component';
-import { MatchInfoModule } from './match-info/match-info.module';
-import { TeamInfoModule } from './team-info/team-info.module';
+import { HeaderComponent } from './modules/ui-components/header/header.component';
+import { FooterComponent } from './modules/ui-components/footer/footer.component';
+import { LeagueSetComponent } from './modules/ui-components/league-set/league-set.component';
+import { GoUpBtnComponent } from './modules/ui-components/go-up-btn/go-up-btn.component';
+import { MatchInfoModule } from './modules/match-info/match-info.module';
+import { TeamInfoModule } from './modules/team-info/team-info.module';
+import { CompetitionInfoModule } from './modules/competition-info/competition-info.module';
+import { PlayerInfoModule } from './modules/player-info/player-info.module';
+import { MatchdayModule } from './modules/matchday/matchday.module';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    MatchInfoModule,
+    TeamInfoModule,
+    CompetitionInfoModule,
+    PlayerInfoModule,
+    MatchdayModule
+  ],
   declarations: [
     AppComponent,
     SvgLibraryComponent,
@@ -21,14 +33,6 @@ import { TeamInfoModule } from './team-info/team-info.module';
     FooterComponent,
     LeagueSetComponent,
     GoUpBtnComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    MatchesModule,
-    MatchInfoModule,
-    TeamInfoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

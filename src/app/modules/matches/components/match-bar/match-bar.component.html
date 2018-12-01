@@ -1,0 +1,31 @@
+<a [ngClass]="['match', currentClass]" [class.-odd-item]="(index + 1) % 2" [routerLink]="['/matches/', match.id]">
+  <!-- Copetition -->
+  <a class="competition-icon" [routerLink]="['/competition/', match.competition.id]" (click)="$event.stopPropagation()">
+    <img [attr.src]="getCompetitionIconPath(match.competition.id)" title="{{ match.competition.name }}">
+  </a>
+  <!-- Start Time -->
+  <span class="start-day">{{ dayPipe() }}</span>
+  <!-- Current Time -->
+  <div class="current-time" [ngSwitch]="match.status">
+    <span *ngSwitchCase="'IN_PLAY'" class="-in-play">{{ getCurrentTime(match['utcDate'])[0] }}'</span>
+    <span *ngSwitchCase="'PAUSED'">HT</span>
+  </div>
+  <!-- Home Team -->
+  <a class="team-home team" [class.-winner]="match.commonStatus === 'FINISHED' && match.score.winner === 'HOME_TEAM'"
+    [routerLink]="['/team/', match.homeTeam.id]" (click)="$event.stopPropagation()">{{ match['homeTeam']['name'] }}</a>
+  <div class="icon-home icon">
+    <img [attr.src]="getTeamIconPath('home')">
+  </div>
+  <!-- Score -->
+  <span [ngClass]="['score-home', 'score', winStateClass]" *ngIf="match['status']!=='SCHEDULED'">{{
+    match['score']['fullTime']['homeTeam'] }}</span>
+  <span class="divider">-</span>
+  <span [ngClass]="['score-away', 'score', winStateClass]" *ngIf="match['status']!=='SCHEDULED'">{{
+    match['score']['fullTime']['awayTeam'] }}</span>
+  <!-- Away Team -->
+  <div class="icon-away icon">
+    <img [attr.src]="getTeamIconPath('away')">
+  </div>
+  <a class="team-away team" href="" [class.-winner]="match.commonStatus === 'FINISHED' && match.score.winner === 'AWAY_TEAM'"
+    [routerLink]="['/team/', match.awayTeam.id]" (click)="$event.stopPropagation()">{{ match['awayTeam']['name'] }}</a>
+</a>

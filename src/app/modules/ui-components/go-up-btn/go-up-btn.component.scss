@@ -1,0 +1,23 @@
+@import '../../../shares/stylings/variables';
+
+.wrapper {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  text-align: center;
+  background-color: $main-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+
+  svg {
+    width: 1em;
+    height: 1em;
+    fill: #fff;
+  }
+}
+
+.wrapper:hover {
+  opacity: 0.75;
+}

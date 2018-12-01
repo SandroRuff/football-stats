@@ -1,0 +1,9 @@
+// Import
+@import '../../../shares/stylings/variables';
+
+// Styles
+.no-matches {
+  padding: 0.5em 2em;
+  background-color: $match-color;
+  color: $dark-text-color;
+}

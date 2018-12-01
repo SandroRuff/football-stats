@@ -1,0 +1,5 @@
+<div class="competition">
+  <img [attr.src]="getAreaIconPath()">
+  <a class="name" [routerLink]="['/competition/', competition.id]">{{ competition["area"] }}: {{ competition["name"] }}</a>
+  <a class="table" href="">Table</a>
+</div>

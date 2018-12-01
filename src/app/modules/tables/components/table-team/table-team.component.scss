@@ -1,0 +1,115 @@
+@import '../../../../shares/stylings/variables';
+@import '../../../../shares/stylings/mixins';
+
+.tableElement {
+  width: 100%;
+  background-color: $light-color;
+  font-size: 0.9em;
+  padding: 0.5em 1em;
+  display: grid;
+  grid-template-columns: 10% 1fr 10% 10% 10%;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'position team match-played goal-difference points';
+  align-items: center;
+
+  span {
+    text-align: center;
+  }
+
+  .team {
+    text-align: start;
+    @include hideOverflow;
+
+    .icon {
+      width: 1em;
+      margin-right: 0.5em;
+      text-align: center;
+      display: inline-block;
+      &, img {
+        height: 1em;
+      }
+    }
+  }
+  
+  .points {
+    font-weight: 600;
+  }
+
+  .won,
+  .draw,
+  .lost,
+  .goal-against,
+  .goal-for {
+    display: none;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $main-color;
+  }
+}
+
+.-odd-element {
+  background-color: $match-color;
+}
+.-current-team {
+  background-color: $match-groupe-color;
+}
+
+//  Grid Areas
+.position {
+  grid-area: position;
+}
+.team {
+  grid-area: team;
+}
+.match-played {
+  grid-area: match-played;
+}
+.won {
+  grid-area: won;
+}
+.draw {
+  grid-area: draw;
+}
+.lost {
+  grid-area: lost;
+}
+.goal-for {
+  grid-area: goal-for;
+}
+.goal-against {
+  grid-area: goal-against;
+}
+.goal-difference {
+  grid-area: goal-difference;
+}
+.points {
+  grid-area: points;
+}
+
+@media (min-width: 768px) {
+  .tableElement {
+    padding: 0.5em 2em;
+    grid-template-columns: 5% 1fr 5% 5% 5% 5% 5% 5% 5% 5%;
+    grid-template-areas: 'position team match-played won draw lost goal-for goal-against goal-difference points';
+  
+    .team {
+      font-size: 1.1em;
+    }
+    span {
+      min-width: 3em;
+    }
+
+    .won,
+    .draw,
+    .lost,
+    .goal-against,
+    .goal-for {
+      display: inline-block;
+    }
+  }
+}

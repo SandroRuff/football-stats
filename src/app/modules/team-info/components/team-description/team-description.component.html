@@ -1,0 +1,39 @@
+<section>
+  <app-section-bar [title]="'Description'"></app-section-bar>
+  <div class="wrapper">
+    <div class="description" *ngIf="descriptionLength > 0">
+      <div class="info-container">
+        <span class="info-element" *ngIf="description.shortName.name"><b>Short Name:</b> {{ description.shortName.name
+          }}
+          <span *ngIf="description.shortName.tla">({{ description.shortName.tla }})</span>
+        </span>
+        <div class="info-element country" *ngIf="description.country">
+          <span><b>Country:</b></span>
+          <img [attr.src]="getAreaIconPath()" (error)="getImageErrorHandler($event.target)">
+          <span>{{ description.country }}</span>
+        </div>
+        <span class="info-element" *ngIf="description.founded"><b>Founded:</b> {{ description.founded }}</span>
+      </div>
+      <div class="info-container activeCompetitions" *ngIf="description.activeCompetitions.length">
+        <span class="info-element"><b>Active Competitions:</b></span>
+        <div class="info-element" *ngFor="let competition of description.activeCompetitions">
+          <img [attr.src]="getCompetitionIconPath(competition.id)" (error)="getImageErrorHandler($event.target)">
+          <span> {{ competition.name }}</span>
+        </div>
+      </div>
+      <div class="info-container">
+        <span class="info-element" *ngIf="description.stadium"><b>Stadium:</b> {{ description.stadium }}</span>
+        <span class="info-element" *ngIf="description.address"><b>Address:</b> {{ description.address }}</span>
+      </div>
+      <div class="info-container">
+        <a class="info-element" *ngIf="description.website" href="{{ description.website }}" target="_blank"><b>Website:</b>
+          <span> {{ description.website }}</span>
+        </a>
+        <span class="info-element" *ngIf="description.email"><b>Email:</b> {{ description.email }}</span>
+      </div>
+    </div>
+    <div class="no-information" *ngIf="descriptionLength < 1">
+      <span>No available information.</span>
+    </div>
+  </div>
+</section>

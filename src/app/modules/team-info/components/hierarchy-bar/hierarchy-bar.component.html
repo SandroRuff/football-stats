@@ -1,0 +1,16 @@
+<div class="bar">
+  <a class="area">
+    <img class="icon" [attr.src]="getIconPath('area')" (error)="getImageErrorHandler($event.target)">
+    <span>{{ baseCompetition.areaName }}</span>
+  </a>
+  <span class="divider">-></span>
+  <a class="competition" [routerLink]="['/competition/', baseCompetition.id]">
+    <img class="icon" [attr.src]="getIconPath('competition')">
+    <span>{{ baseCompetition.name }}</span>
+  </a>
+  <span class="divider">-></span>
+  <div class="team">
+    <img class="icon" [attr.src]="getIconPath('team')">
+    <span>{{ team.name }}</span>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="elements" (click)="onElementsClick()">
+    <span>More {{ type }}s</span>
+    <svg width="0.75em" height="0.75em">
+      <use xlink:href="#arrow-down"></use>
+    </svg>
+  </div>
+  <ul *ngIf="isElementsListVisible" (click)="onElementsClick()">
+    <li *ngFor=" let element of elements">
+      <a [routerLink]="['/', type, element.id]">
+        <img class="icon" [attr.src]="getIconPath(element.id)">
+        <span class="name">{{ element.name }}</span>
+      </a>
+    </li>
+  </ul>
+</div>

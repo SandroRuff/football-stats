@@ -1,0 +1,13 @@
+<section>
+  <app-section-bar-with-selection [title]="'Matches'" [elements]="competitions" [elementsTitle]="competitionName"
+    (elementSelected)="competitionSelected($event)"></app-section-bar-with-selection>
+  <app-navigation-bar [items]="navItems" (itemClicked)="onNavItemClick()"></app-navigation-bar>
+  <div *ngIf="navItems[0].isSelected">
+    <app-match-bar *ngFor="let match of finishedMatches[competitionName]; let i = index" [teamId]="teamId" [match]="match"
+      [index]="i"></app-match-bar>
+  </div>
+  <div *ngIf="navItems[1].isSelected">
+    <app-match-bar *ngFor="let match of scheduledMatches[competitionName]; let i = index" [teamId]="teamId" [match]="match"
+      [index]="i"></app-match-bar>
+  </div>
+</section>

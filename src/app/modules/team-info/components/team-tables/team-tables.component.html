@@ -1,0 +1,8 @@
+<section>
+  <app-section-bar-with-selection [title]="'Tables'" [elements]="competitions" [elementsTitle]="competitionName"
+    (elementSelected)="competitionSelected($event)"></app-section-bar-with-selection>
+  <app-navigation-bar [items]="navItems" (itemClicked)="onNavItemClick()"></app-navigation-bar>
+  <app-table-total *ngIf="navItems[0].isSelected" [standings]="standingsArr[0]" [teamId]="teamId"></app-table-total>
+  <app-table-total *ngIf="navItems[1].isSelected" [standings]="standingsArr[1]" [teamId]="teamId"></app-table-total>
+  <app-table-total *ngIf="navItems[2].isSelected" [standings]="standingsArr[2]" [teamId]="teamId"></app-table-total>
+</section>

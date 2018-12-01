@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <div *ngFor="let group of groupedSquad">
+    <div class="group" *ngIf="group.players.length">
+      <span>{{ group.position }}</span>
+      <div class="players">
+        <app-player-article *ngFor="let player of group.players" [player]="player"></app-player-article>
+      </div>
+    </div>
+  </div>
+</div>

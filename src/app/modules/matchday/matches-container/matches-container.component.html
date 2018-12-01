@@ -1,0 +1,12 @@
+<div *ngIf="!isDataLoading">
+  <div class="matches" *ngFor="let group of matches">
+    <app-competition-title-bar [competition]="group[0]['competition']" *ngIf="tabs[0]['isSelected'] 
+            || isEmptyGroup(group)"></app-competition-title-bar>
+    <div *ngFor="let match of group">
+      <app-match *ngIf="tabs[0]['isSelected'] || getVisibilityByTab(match.commonStatus)" [match]="match"></app-match>
+    </div>
+  </div>
+</div>
+<div class="no-matches" *ngIf="isEmptyTab() && !isDataLoading">No {{ tabs[currentTab]['name'] | lowercase }}
+  matches in this day.</div>
+<app-data-loading-indicator *ngIf="isDataLoading"></app-data-loading-indicator>
