@@ -21,7 +21,7 @@ interface MatchesResponse {
 export class HttpService {
 
   headers: HttpHeaders = new HttpHeaders().set('X-Auth-Token', '7de3a032a5d441d69ea1e4ad478b0b53');
-  url = 'http://api.football-data.org';
+  url = 'https://api.football-data.org';
 
   // Areas
   availableCompetitions: AvailableCompetition[] = [
